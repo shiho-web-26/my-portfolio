@@ -78,7 +78,7 @@ footer {
 /*ヘッダー*/
 .header,
 .header_03 {
-    background: url("sweet_images/header.png") center / cover no-repeat;
+    background: url("images/header.png") center / cover no-repeat;
     height: 960px;
 }
 
@@ -164,7 +164,7 @@ footer {
 
 /* ヘッダーー０３*/
 .header_03 {
-    background: url("sweet_images/header_02.png") center / cover no-repeat;
+    background: url("images/header_02.png") center / cover no-repeat;
     height: 960px;
 }
 
@@ -220,14 +220,14 @@ footer {
     width: 100%;
     font-size: 128px;
     font-family: 'title';
-    background: url(sweet_images/home/background_stripe_02.png);
+    background: url(images/home/background_stripe_02.png);
 
 }
 
 .pick_up_box {
     display: flex;
     justify-content: center;
-    background: url(sweet_images/home/background_stripe.png);
+    background: url(images/home/background_stripe.png);
     gap: 38px;
     margin: 0;
     width: 100%;
@@ -345,8 +345,8 @@ footer {
     margin: 0 40px;
 }
 
-.menu_box {
-    margin: 200px auto;
+.menu_page {
+    margin: 0 auto;
 }
 
 .item_list {
@@ -391,7 +391,7 @@ footer {
     font-size: 72px;
 }
 
-.item_list_sent a {
+.more-link {
     width: 80%;
     font-family: 'title';
     font-size: 62px;
@@ -826,7 +826,7 @@ footer {
     margin-top: 260px;
     display: flex;
     flex-direction: column;
-    background: url(sweet_images/about/hatake.png);
+    background: url(images/about/hatake.png);
     height: 959px;
 }
 

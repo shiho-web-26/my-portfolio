@@ -18,7 +18,7 @@
                 <nav>
                     <ul>
                         <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="#">MENU</a></li>
+                        <li><a href="menu.html">MENU</a></li>
                         <li><a href="cart.html">CART</a></li>
                     </ul>
                 </nav>
@@ -29,15 +29,7 @@
 
     <main>
 
-        <section class="menu_page">
-            <div class="menu_title">
-                <div class="line_02"></div>
-                <h1>Menu</h1>
-                <div class="line_02"></div>
-            </div>
-
-            <div class="item_list" id="item_list"></div>
-        </section>
+        <section class="product_page" id="product-page"></section>
 
     </main>
 
@@ -66,7 +58,7 @@
         <section class="pink">
             <a href="about.html">ABOUT</a>
             <p>|</p>
-            <a href="#">MENU</a>
+            <a href="menu.html">MENU</a>
             <p>|</p>
             <a href="cart.html">CART</a>
             <p>|</p>
@@ -79,7 +71,10 @@
     <script src="js/script.js"></script>
 
     <script>
-        displayProducts();
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        displayProductDetail(id);
     </script>
 
 </body>
