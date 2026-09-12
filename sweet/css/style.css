@@ -1,0 +1,1158 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --font-title: "Bodoni MT", Didot, Georgia, "Times New Roman", serif;
+    --font-price: "Bahnschrift Condensed", "Arial Narrow", Arial, sans-serif;
+    --font-body: "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+
+    --br: #4A3A32;
+    --gold: #C9A46A;
+    --pink: #E9C6C9;
+    --cleam: #F7F3EF;
+    --bl: #9ab4c4;
+}
+
+h1 {
+    font-family: var(--font-title);
+}
+
+.price {
+    font-family: var(--font-price);
+}
+
+p {
+    font-family: var(--font-body);
+}
+
+h1,
+h2,
+ul,
+li,
+p,
+a,
+small {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--br);
+}
+
+body {
+    background-color: var(--cleam);
+    margin: 0;
+    font-size: 36px;
+    color: var(--br);
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+main,
+header,
+footer {
+    background-color: var(--cleam);
+
+    margin: 0 auto;
+}
+
+.line {
+    width: 100%;
+    border-top: 1px solid var(--br);
+}
+
+.line_02 {
+    width: 100%;
+    border-top: 2px solid var(--br);
+}
+
+/*ヘッダー*/
+.header,
+.header_03 {
+    background: url("sweet_images/header.png") center / cover no-repeat;
+    height: 960px;
+}
+
+.header_box,
+.header_box_02 {
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.header_box {
+    color: var(--cleam);
+    background: rgba(255, 255, 255, .2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+    backdrop-filter: blur(5px);
+
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.header_title,
+.header_title {
+    font-family: 'title';
+    font-size: 96px;
+    color: var(--cleam);
+    text-decoration: none;
+}
+
+.header_list nav ul,
+.header_list_02 nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.header_list a,
+.header_list_02 a {
+    display: flex;
+    font-size: 32px;
+    font-family: 'title';
+    color: var(--cleam);
+    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+/*ヘッダー０２*/
+.header_02 {
+    background-color: var(--cleam);
+    border-bottom: 1px solid var(--br);
+    padding: 40px 20px 10px;
+}
+
+.header_box_02 a {
+    color: var(--br);
+    font-size: 72px;
+}
+
+.header_list_02 nav ul {
+    gap: 24px;
+}
+
+.header_list_02 a {
+    font-family: 'p',
+        "Noto Serif JP",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Yu Mincho",
+        "YuMincho",
+        "MS PMincho",
+        serif;
+    font-size: 28px;
+    text-decoration: none;
+    padding-top: 20px;
+    justify-content: flex-end;
+}
+
+/* ヘッダーー０３*/
+.header_03 {
+    background: url("sweet_images/header_02.png") center / cover no-repeat;
+    height: 960px;
+}
+
+/*ホーム*/
+.news {
+    margin: 0 auto;
+    margin-top: -200px;
+    background-color: var(--cleam);
+}
+
+.news_topicks {
+    display: flex;
+    gap: 10px;
+    margin: 0 18px;
+    justify-content: center;
+}
+
+.online_shop {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 260px;
+    gap: 60px;
+}
+
+.online_shop strong {
+    font-size: 36px;
+    border-bottom: 2px solid var(--br);
+    width: fit-content;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.online_shop img {
+    width: 32%;
+    margin: 32px auto;
+}
+
+.pick_up {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    margin-top: 260px;
+    width: 100%;
+}
+
+.pick_up_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 128px;
+    font-family: 'title';
+    background: url(sweet_images/home/background_stripe_02.png);
+
+}
+
+.pick_up_box {
+    display: flex;
+    justify-content: center;
+    background: url(sweet_images/home/background_stripe.png);
+    gap: 38px;
+    margin: 0;
+    width: 100%;
+}
+
+.pick_up_box article {
+    width: 380px;
+    height: 700px;
+    background-color: var(--cleam);
+    margin: 60px 0;
+}
+
+.pick_up_box a:hover {
+    transform: scale(1.03);
+}
+
+.pick_up_box article a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    color: var(--br);
+}
+
+.title {
+    font-family: title;
+    font-size: 48px;
+}
+
+.price {
+    font-family: 'price';
+    color: var(--gold);
+    font-size: 50px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.price span {
+    font-size: 48px;
+}
+
+.menu_go {
+    display: block;
+    width: 300px;
+    height: 76px;
+    margin: 0 auto;
+    margin-top: 42px;
+    background-color: var(--cleam);
+    text-decoration: none;
+    border: 2px solid var(--gold);
+    border-radius: 28px;
+    color: var(--gold);
+    font-size: 48px;
+}
+
+.cake_shop_box {
+    display: flex;
+    background-color: var(--cleam);
+    border: 2px solid var(--gold);
+    border-left: none;
+    width: 90%;
+    min-height: 620px;
+    overflow: visible;
+    position: relative;
+    margin-top: 520px;
+}
+
+.cake_shop {
+    width: 58%;
+    background-color: transparent;
+    padding: 20px 40px 40px 40px;
+    margin-left: 40px;
+}
+
+.cake_shop h2 {
+    color: var(--gold);
+    font-family: 'title';
+    font-size: 96px;
+    margin-bottom: 20px;
+}
+
+.cake_shop_sent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.cake_shop p {
+    padding: 6px 6px;
+}
+
+.cake_shop a {
+    text-decoration: none;
+    color: var(--gold);
+    margin-left: 520px;
+}
+
+.cake_shop_img {
+    position: absolute;
+    right: -100px;
+    bottom: 80px;
+    width: 42%;
+    max-width: 580px;
+}
+
+/*メニュー*/
+.menu_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_title h1 {
+    font-family: 'title';
+    font-size: 128px;
+    margin: 0 40px;
+}
+
+.menu_box {
+    margin: 200px auto;
+}
+
+.item_list {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 100px auto;
+    gap: 100px;
+}
+
+.item_list article {
+    display: flex;
+    gap: 60px;
+}
+
+.item_list article img {
+    width: 445px;
+    height: 415px;
+}
+
+.item_list_sent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+
+.item_list_sent h2 {
+    font-family: 'title';
+    font-size: 110px;
+}
+
+.item_list_sent p {
+    font-family: 'price';
+    color: var(--gold);
+    font-size: 120px;
+    margin-left: auto;
+}
+
+.item_list_sent span {
+    font-size: 72px;
+}
+
+.item_list_sent a {
+    width: 80%;
+    font-family: 'title';
+    font-size: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    margin: 0 auto;
+
+    color: var(--cleam);
+    background-color: var(--pink);
+    border: 1px solid var(--br);
+    border-radius: 78px;
+}
+
+.page_select {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+.page_select a {
+    color: var(--pink);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+/*商品ページ*/
+.product_page_a {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-top: 260px;
+    padding-bottom: 10px;
+    padding-left: 24px;
+    background-color: var(--cleam);
+}
+
+.product_page {
+    display: flex;
+    padding-top: 0;
+    gap: 20px;
+}
+
+.left {
+    width: 40%;
+    margin-left: 24px;
+}
+
+.left p {
+    font-size: 24px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-right: 24px;
+}
+
+.right h2 {
+    font-family: 'p',
+        "Noto Serif JP",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Yu Mincho",
+        "YuMincho",
+        "MS PMincho",
+        serif;
+    font-size: 60px;
+}
+
+.product_price {
+    margin-top: 20px;
+    font-size: 64px;
+}
+
+.product_price span {
+    font-size: 36px;
+}
+
+.form_sent {
+    display: flex;
+    flex-direction: column;
+    margin: 100px 0;
+    gap: 24px;
+    font-size: 24px;
+}
+
+.product_button {
+    display: flex;
+    gap: 24px;
+}
+
+.qty {
+    display: flex;
+    gap: 2px;
+}
+
+.qty span {
+    width: 32px;
+    text-align: right;
+    border: 1px solid;
+    background-color: #ffffff;
+}
+
+.date_box {
+    margin-top: 4px;
+    display: flex;
+    font-size: 18px;
+    color: red;
+}
+
+.time_box {
+    margin-top: 2px;
+    display: flex;
+    font-size: 18px;
+    color: red;
+}
+
+.product_form textarea {
+    width: 60%;
+    resize: none;
+}
+
+.button_add {
+    font-family: 'p',
+        "Noto Serif JP",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Yu Mincho",
+        "YuMincho",
+        "MS PMincho",
+        serif;
+    font-size: 32px;
+    background-color: var(--cleam);
+    border: 1px solid var(--br);
+    border-radius: 55px;
+    width: 360px;
+    height: 76px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+/*カート　空*/
+.emp_title,
+.thx_title {
+    font-family: 'title';
+    text-align: center;
+    font-size: 96px;
+}
+
+.emp_title span {
+    color: var(--pink);
+    text-shadow:
+        -1px -1px 0 var(--br),
+        1px -1px 0 var(--br),
+        -1px 1px 0 var(--br),
+        1px 1px 0 var(--br);
+}
+
+.emp_img {
+    display: flex;
+    justify-content: center;
+    width: 480px;
+    margin: 200px auto;
+}
+
+.emp_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 132px;
+    margin: 0 auto;
+
+    font-family: 'title';
+    font-size: 48px;
+    color: var(--cleam);
+    background-color: var(--pink);
+    border: 1px solid var(--br);
+    border-radius: 78px;
+}
+
+/*カート*/
+.cart_title {
+    font-family: 'title';
+    font-size: 128px;
+    text-align: center;
+}
+
+.cart_table {
+    font-family: 'p',
+        "Noto Serif JP",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Yu Mincho",
+        "YuMincho",
+        "MS PMincho",
+        serif;
+    width: 90%;
+    margin: 120px auto 0;
+}
+
+.cart_table h2 {
+    font-size: 40px;
+}
+
+.orderlist {
+    display: grid;
+    grid-template-columns:
+        480px 240px 240px 1fr;
+    text-align: left;
+}
+
+#cartArea {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 10px auto 32px;
+}
+
+.cart_item {
+    display: grid;
+    grid-template-columns:
+        1fr 200px 240px 240px 80px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--br);
+    padding: 12px 20px;
+}
+
+.cart_total {
+    margin-top: 24px;
+}
+
+.total_box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.total_box strong {
+    white-space: nowrap;
+    margin-right: 200px;
+    font-size: 40px;
+}
+
+.cart_line {
+    margin-top: 120px;
+}
+
+.cart_pay {
+    display: flex;
+    margin: 18px 0;
+}
+
+.cart_pay h2 {
+    width: 80%;
+}
+
+.cart_pay form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    font-size: 24px;
+}
+
+.cart_table a {
+    font-size: 24px;
+    margin-left: 24px;
+}
+
+.cart_order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'title';
+    font-size: 64px;
+    color: var(--pink);
+    background-color: var(--cleam);
+    border: 1px solid var(--br);
+    border-radius: 77px;
+    text-shadow:
+        -1px -1px 0 var(--br),
+        1px -1px 0 var(--br),
+        -1px 1px 0 var(--br),
+        1px 1px 0 var(--br);
+    margin: 60px auto 0;
+
+    width: 600px;
+    height: 132px;
+}
+
+/*ＴＨＡＮＫ　ＹＯＵページ*/
+.thx img {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 430px;
+}
+
+.thx_title {
+    font-family: 'title';
+    margin-top: 100px;
+    font-size: 64px;
+}
+
+.thx p {
+    font-size: 24px;
+    text-align: center;
+    margin: 30px auto;
+}
+
+.thx_button {
+    display: flex;
+    font-family: 'title';
+    gap: 40px;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.thx_button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 60px;
+    background-color: var(--cleam);
+    color: var(--br);
+    border: 1px solid var(--br);
+    border-radius: 72px;
+    font-size: 28px;
+}
+
+/*アバウト*/
+.about_p {
+    width: 100%;
+    max-width: 1440px;
+    background-color: var(--cleam);
+    text-align: center;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+.joshou {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    font-size: 32px;
+
+}
+
+.concept {
+    font-size: 48px;
+    text-decoration: underline;
+    text-shadow: 0 -1px 12px rgba(206, 94, 94, 0.5);
+}
+
+.picture {
+    width: 100%;
+    display: flex;
+    gap: 0px;
+    overflow: hidden;
+}
+
+.trans {
+    display: flex;
+    transform: transform 0.6s ease;
+}
+
+.trans img {
+    width: 30%;
+    flex-shrink: 0;
+}
+
+.kodawari {
+    display: flex;
+    flex-direction: column;
+    margin-top: 260px;
+}
+
+.kodawari_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 80px;
+}
+
+.kodawari_title h2 {
+    font-size: 64px;
+    white-space: nowrap;
+}
+
+.kodawari_box {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    gap: 24px;
+}
+
+.kodawari_box img {
+    height: 100%;
+}
+
+.kodawari_sent {
+    font-family: 'p',
+        "Noto Serif JP",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Yu Mincho",
+        "YuMincho",
+        "MS PMincho",
+        serif;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.kodawari_sent_02 {
+    width: 90%;
+    margin: 60px auto 80px;
+}
+
+.ichigo {
+    margin-top: 260px;
+    display: flex;
+    flex-direction: column;
+    background: url(sweet_images/about/hatake.png);
+    height: 959px;
+}
+
+.ichigo_box {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 1320px;
+    height: 740px;
+    margin: auto;
+}
+
+.ichigo_box h2 {
+    font-family: 'p',
+        "Noto Serif JP",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Yu Mincho",
+        "YuMincho",
+        "MS PMincho",
+        serif;
+    font-size: 64px;
+    text-align: center;
+    margin: 24px auto;
+}
+
+.ichigo_box p {
+    width: 84%;
+    margin: 0 auto 40px;
+}
+
+.yousu {
+    margin-top: 260px;
+    display: flex;
+    flex-direction: column;
+}
+
+.yousu h2 {
+    font-family: 'p',
+        "Noto Serif JP",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Yu Mincho",
+        "YuMincho",
+        "MS PMincho",
+        serif;
+    text-align: center;
+    font-size: 64px;
+}
+
+.yousu_box {
+    width: 80%;
+    margin: 80px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.yousu_sent {
+    display: flex;
+    width: 100%;
+    font-size: 32px;
+    gap: 24px;
+}
+
+/*ニュース*/
+.news_page_title {
+    font-family: 'p';
+    font-size: 32px;
+    margin-left: 24px;
+}
+
+.news_page_topicks {
+    display: flex;
+    gap: 12px;
+    margin: 32px auto 0;
+    padding: 0 24px;
+}
+
+.news_article {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--br);
+}
+
+.news_article:hover {
+    transform: scale(1.03);
+}
+
+.news_article p {
+    font-size: 18px;
+    padding: 0 4px;
+}
+
+.news_article p span {
+    display: block;
+    text-align: right;
+    margin-right: 4px;
+}
+
+/*記事*/
+.main_news {
+    max-width: 1440px;
+    width: 100%;
+    background-color: var(--cleam);
+    margin: 0 auto;
+    padding: 40px 0 260px;
+}
+
+.news_title {
+    display: block;
+    margin: 200px auto 20px;
+    width: 90%;
+    font-size: 32px;
+}
+
+.line_news_02 {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    border-top: 2px solid var(--br);
+}
+
+.news_sent {
+    width: 80%;
+    margin: 10px auto 0;
+}
+
+.news_sent span {
+    display: block;
+    text-align: right;
+    margin: 4px auto;
+    font-size: 24px;
+}
+
+.news_sent p {
+    display: block;
+    margin: 60px auto 0;
+    font-size: 30px;
+}
+
+.kuuhaku {
+    display: flex;
+    margin: 10px auto;
+}
+
+.news_sent p span {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    margin: 60px auto;
+    font-size: 24px;
+}
+
+.line_news {
+    display: flex;
+    border-top: 1px solid var(--br);
+    width: 100%;
+    margin: 120px auto 24px;
+
+}
+
+.topicks_article_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    margin-top: 24px;
+}
+
+.topicks_article_button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    color: var(--pink);
+    width: 80px;
+    height: 80px;
+    background-color: var(--cleam);
+    border: 2px solid var(--pink);
+    border-radius: 100px;
+    text-align: center;
+}
+
+/*フッター*/
+footer {
+    width: 100%;
+    background-color: var(--cleam);
+}
+
+.white {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.white h2 {
+    font-family: 'title';
+    font-size: 96px;
+    color: var(--pink);
+    text-shadow:
+        -1px -1px 0 var(--br),
+        1px -1px 0 var(--br),
+        -1px 1px 0 var(--br),
+        1px 1px 0 var(--br);
+}
+
+.Reservation_buuton {
+    width: 200px;
+    height: 38px;
+    margin: 20px auto;
+
+    position: relative;
+}
+
+.Reservation_buuton a {
+    background: var(--cleam);
+    border: 1px solid var(--br);
+    font-size: 20px;
+    color: var(--br);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 200px;
+    height: 38px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.Reservation_box_shadow {
+    position: absolute;
+    z-index: 1;
+    left: 6px;
+    top: 6px;
+
+    width: 200px;
+    height: 38px;
+
+    background-color: var(--pink);
+    border-right: 1px solid var(--br);
+    border-bottom: 1px solid var(--br);
+}
+
+.sns {
+    display: flex;
+    align-self: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.white small {
+    margin: 0 10px 0 auto;
+    font-size: 16px;
+}
+
+.pink {
+    width: 100%;
+    background-color: var(--pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.pink a {
+    text-decoration: none;
+    color: var(--br);
+    font-size: 20px;
+}
+
+.pink p {
+    font-size: 20px;
+}
+
+/*ホバーブルー*/
+.header_title:hover,
+.header_list a:hover,
+.header_list_02 a:hover,
+.cake_shop a:hover,
+.Reservation_buuton a:hover,
+.pink a:hover,
+.page_select a:hover,
+.product_page_a a:hover,
+.cart_table a:hover,
+.news_article p:hover {
+    color: var(--bl);
+}
+
+.header_list a:hover {
+    text-decoration: none;
+}
+
+.menu_go:hover {
+    color: var(--cleam);
+    background-color: var(--gold);
+    border-color: var(--gold);
+}
+
+.item_list_sent a:hover,
+.emp_button:hover {
+    background-color: var(--bl);
+}
+
+.button_add:hover {
+    background-color: var(--pink);
+}
+
+.cart_order:hover {
+    background-color: var(--pink);
+}
+
+.page_select a:hover {
+    text-decoration: none;
+}
+
+.button_add:hover,
+.cart_order:hover {
+    color: var(--cleam);
+}
+
+.topicks_article_button a:hover,
+.thx_button a:hover {
+    color: var(--cleam);
+    background-color: var(--pink);
+}

@@ -1,0 +1,11 @@
+sweet/
+├── index.html
+├── about.html
+├── menu.html
+├── cart.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── product.js
+│   └── cart.js
+└── images/
