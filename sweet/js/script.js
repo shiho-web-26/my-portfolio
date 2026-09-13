@@ -1,9 +1,11 @@
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 function displayProducts() {
-    const itemList = document.getElementById("item_list");
+    const itemList = document.getElementById("item-list");
 
     for (let i = 0; i < products.length; i++) {
         const id = products[i].id;
-        const img = `images/products_no_bg/${id}.png`
+        const img = `images/products-no-bg/${id}.png`
 
         const name = products[i].name;
         const priceMin = products[i].sizePrices.slice;
@@ -11,7 +13,7 @@ function displayProducts() {
         itemList.innerHTML += `
             <article>
                 <img src="${img}" alt="${name}の写真">
-                <div class="item_list_sent">
+                <div class="item-list-sent">
                     <h2>${name}</h2>
                     <p><strong>${priceMin.toLocaleString()}</strong><span>yen~</span></p>
                     <a class="more-link" href="product.html?id=${id}">more</a>
@@ -58,11 +60,11 @@ function displayProductDetail(id) {
     <section>
         <h2>${name}<span id="size">${size}</span></h2>
         <p>${description}</p>
-        <p class="product_price" id="price">￥${price.toLocaleString()}<span>（税込）</span></p>
+        <p class="product-price" id="price">￥${price.toLocaleString()}<span>（税込）</span></p>
 
 
-        <form class="form_sent">
-            <div class="product_button">
+        <form class="product-form" id="product-form">
+            <div class="product-button">
                 <div class="qty">
                     <button type="button" id="minusBtn">-</button>
                     <span id="qtyBtn">1</span>
@@ -77,40 +79,55 @@ function displayProductDetail(id) {
                 </select>
             </div>
 
-            <dis class="product_select">
-                <script id="date_time"></script>
+            <div class="product-select">
+                <script id="date-time"></script>
                 <label>受け取り日時</label><br>
-                <div class="date_box">
-                    <input type="date" required id="dateLabel">
-                    <p id="dateMsg"></p>
+                <div class="date-box">
+                    <input id="date-label" type="date" required>
+                    <p id="date-msg">※受取日は、ご注文日から3日後以降をご指定いただけます。</p>
                 </div>
-                <div class="time_box">
-                    <input required id="timeLabel" type="time" min="11:00" max="19:00" step="1800">
+                <div class="time-box">
+                    <input required id="timeLabel" type="time" min="11:00" max="19:00" step="60">
                     <p id="timeMsg"></p>
                 </div>
             </dis>
 
-            <label class="product_form" for="message">
-                <span>
-                    <strong>メッセージプレートをご希望の方は、メッセージ内容をご記入ください。</strong><br>
-                    ※不要の場合は「不要」とお書きください。
-                </span>
-                <textarea type="message" rows="1" placeholder="例）Happy Birthday ◯◯" id="message"
-                    required></textarea>
-            </label>
-            <label class="product_form" for="candle">
-                <span>
-                    <strong>ローソクをご希望の方は、長さ（長or短）とご希望の本数をご記入ください。</strong><br>
-                    ※不要の場合は「不要」とお書きください。
-                </span>
-                <textarea type="message" rows="1" placeholder="例）長3本と短2本" id="candle" required></textarea>
-            </label>
+            <div class="option-group">
+                <span>メッセージプレート</span>
+                <label>
+                    <input type="radio" name="message-plate" value="不要" checked>
+                    不要
+                </label>
 
-            <button class="button_add" id="addBtn" type="button">Add to Cart⇀</button>
+                <label>
+                    <input type="radio" name="message-plate" value="必要">
+                    必要
+                </label>
+
+                <div id="message-plate-detail"></div>
+           </div>
+
+            <div class="option-group">
+                <span>ローソク</span>
+                <label>
+                    <input type="radio" name="candles" value="不要" checked>
+                    不要
+                </label>
+
+                <label>
+                    <input type="radio" name="candles" value="必要">
+                    必要
+                </label>
+
+                <div id="candles-detail"></div>
+            </div>
+
+            <button class="add-btn" id="add-btn" type="submit">Add to Cart⇀</button>
         </form>
     </section>
     `;
 
+    //サイズ変更
     const sizeSelect = document.getElementById("sizeSelect");
     const priceElement = document.getElementById("price");
     const sizeElement = document.getElementById("size");
@@ -132,7 +149,7 @@ function displayProductDetail(id) {
         } else {
             size = "1カット";
             imgElement.innerHTML = `
-            <img id="img" src="images/products/${id}_slice.png" alt="${name}の写真">
+            <img id="img" src="images/products/${id}-slice.png" alt="${name}の写真">
             `
         }
 
@@ -142,4 +159,130 @@ function displayProductDetail(id) {
 
         sizeElement.textContent = size;
     });
+
+    //日付　3日後から選択可能
+    const dateLabel = document.getElementById("date-label");
+
+    const minDate = new Date();
+    minDate.setDate(minDate.getDate() + 3);
+
+    const year = minDate.getFullYear();
+    const month = String(minDate.getMonth() + 1).padStart(2, "0");
+    const day = String(minDate.getDate()).padStart(2, "0");
+
+    dateLabel.min = `${year}-${month}-${day}`;
+
+    //ラベル
+    const messagePlateRadios = document.querySelectorAll(
+        'input[name="message-plate"]'
+    );
+    const messagePlate = document.getElementById("message-plate-detail");
+
+    messagePlateRadios.forEach((radio) => {
+        radio.addEventListener("change", () => {
+            const selected = document.querySelector(
+                'input[name="message-plate"]:checked'
+            );
+
+            if (selected.value === "必要") {
+                messagePlate.innerHTML = `
+                <label class="product-form" for="message">
+                    <span>
+                        <strong>メッセージプレートをご希望の方は、メッセージ内容をご記入ください。</strong><br>
+                        ※不要の場合は「不要」とお書きください。
+                    </span>
+                    <textarea type="message" rows="1" placeholder="例）Happy Birthday ◯◯" id="message"
+                        required></textarea>
+                </label>
+                `;
+            } else {
+                messagePlate.innerHTML = ``;
+            }
+
+        })
+    });
+
+    const candlesRadios = document.querySelectorAll(
+        'input[name="candles"]'
+    );
+    const candles = document.getElementById("candles-detail");
+
+    candlesRadios.forEach((radio) => {
+        radio.addEventListener("change", () => {
+            const selected = document.querySelector(
+                'input[name="candles"]:checked'
+            );
+
+            if (selected.value === "必要") {
+                candles.innerHTML = `
+                <label class="product-form" for="candle">
+                    <span>
+                        <strong>ローソクをご希望の方は、長さ（長or短）とご希望の本数をご記入ください。</strong><br>
+                        ※不要の場合は「不要」とお書きください。
+                    </span>
+                    <textarea type="message" rows="1" placeholder="例）長3本と短2本" id="candle" required></textarea>
+                </label>
+                `;
+            } else {
+                candles.innerHTML = ``;
+            }
+
+        })
+    });
+
+    //カートに入れる
+    const productForm = document.getElementById("product-form");
+
+    productForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const productId = id;
+        const size = document.getElementById("sizeSelect").value;
+        const price = product.sizePrices[size];
+        const quantity = Number(
+            document.getElementById("qtyBtn").textContent
+        );
+
+        const pickupDate = document.getElementById("date-label").value;
+        const pickupTime = document.getElementById("date-time").value;
+
+        const messagePlateSelected = document.querySelector(
+            'input[name="message-plate"]:checked'
+        ).value;
+        let message = "不要";
+        if (messagePlateSelected === "必要") {
+            message = document.getElementById("message").value;
+        }
+        const candlesSelected = document.querySelector(
+            'input[name="candles"]:checked'
+        ).value;
+        let candles = "不要";
+        if (candlesSelected === "必要") {
+            candles = document.getElementById("candle").value;
+        }
+
+        const cartItem = {
+            productId: productId,
+            size: size,
+            price: price,
+            quantity: quantity,
+
+            pickupDate: pickupDate,
+            pickupTime: pickupTime,
+
+            message: message,
+            candles: candles
+        };
+
+        cart.push(cartItem);
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        window.location.reload();
+    });
+}
+
+function displayCartPage() {
+    localStorage.getItem("cart", JSON.stringify(cart));
+
+    console.log(cart);
 }

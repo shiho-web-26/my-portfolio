@@ -12,6 +12,15 @@
     --pink: #E9C6C9;
     --cleam: #F7F3EF;
     --bl: #9ab4c4;
+
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
 }
 
 h1 {
@@ -70,20 +79,20 @@ footer {
     border-top: 1px solid var(--br);
 }
 
-.line_02 {
+.line-02 {
     width: 100%;
     border-top: 2px solid var(--br);
 }
 
 /*ヘッダー*/
 .header,
-.header_03 {
+.header-03 {
     background: url("images/header.png") center / cover no-repeat;
     height: 960px;
 }
 
-.header_box,
-.header_box_02 {
+.header-box,
+.header-box-02 {
     justify-content: space-between;
     width: 100%;
     max-width: 1440px;
@@ -94,7 +103,7 @@ footer {
     box-sizing: border-box;
 }
 
-.header_box {
+.header-box {
     color: var(--cleam);
     background: rgba(255, 255, 255, .2);
     box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
@@ -105,23 +114,23 @@ footer {
     z-index: 1000;
 }
 
-.header_title,
-.header_title {
+.header-title,
+.header-title {
     font-family: 'title';
     font-size: 96px;
     color: var(--cleam);
     text-decoration: none;
 }
 
-.header_list nav ul,
-.header_list_02 nav ul {
+.header-list nav ul,
+.header-list-02 nav ul {
     display: flex;
     list-style: none;
     gap: 20px;
 }
 
-.header_list a,
-.header_list_02 a {
+.header-list a,
+.header-list-02 a {
     display: flex;
     font-size: 32px;
     font-family: 'title';
@@ -132,22 +141,22 @@ footer {
 }
 
 /*ヘッダー０２*/
-.header_02 {
+.header-02 {
     background-color: var(--cleam);
     border-bottom: 1px solid var(--br);
     padding: 40px 20px 10px;
 }
 
-.header_box_02 a {
+.header-box-02 a {
     color: var(--br);
     font-size: 72px;
 }
 
-.header_list_02 nav ul {
+.header-list-02 nav ul {
     gap: 24px;
 }
 
-.header_list_02 a {
+.header-list-02 a {
     font-family: 'p',
         "Noto Serif JP",
         "Hiragino Mincho ProN",
@@ -163,8 +172,8 @@ footer {
 }
 
 /* ヘッダーー０３*/
-.header_03 {
-    background: url("images/header_02.png") center / cover no-repeat;
+.header-03 {
+    background: url("images/header-02.png") center / cover no-repeat;
     height: 960px;
 }
 
@@ -175,14 +184,14 @@ footer {
     background-color: var(--cleam);
 }
 
-.news_topicks {
+.news-topicks {
     display: flex;
     gap: 10px;
     margin: 0 18px;
     justify-content: center;
 }
 
-.online_shop {
+.online-shop {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -191,7 +200,7 @@ footer {
     gap: 60px;
 }
 
-.online_shop strong {
+.online-shop strong {
     font-size: 36px;
     border-bottom: 2px solid var(--br);
     width: fit-content;
@@ -199,12 +208,12 @@ footer {
     margin: 0 auto;
 }
 
-.online_shop img {
+.online-shop img {
     width: 32%;
     margin: 32px auto;
 }
 
-.pick_up {
+.pick-up {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -213,38 +222,38 @@ footer {
     width: 100%;
 }
 
-.pick_up_title {
+.pick-up-title {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     font-size: 128px;
     font-family: 'title';
-    background: url(images/home/background_stripe_02.png);
+    background: url(images/home/background-stripe-02.png);
 
 }
 
-.pick_up_box {
+.pick-up-box {
     display: flex;
     justify-content: center;
-    background: url(images/home/background_stripe.png);
+    background: url(images/home/background-stripe.png);
     gap: 38px;
     margin: 0;
     width: 100%;
 }
 
-.pick_up_box article {
+.pick-up-box article {
     width: 380px;
     height: 700px;
     background-color: var(--cleam);
     margin: 60px 0;
 }
 
-.pick_up_box a:hover {
+.pick-up-box a:hover {
     transform: scale(1.03);
 }
 
-.pick_up_box article a {
+.pick-up-box article a {
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -268,7 +277,7 @@ footer {
     font-size: 48px;
 }
 
-.menu_go {
+.menu-go {
     display: block;
     width: 300px;
     height: 76px;
@@ -282,7 +291,7 @@ footer {
     font-size: 48px;
 }
 
-.cake_shop_box {
+.cake-shop-box {
     display: flex;
     background-color: var(--cleam);
     border: 2px solid var(--gold);
@@ -294,37 +303,37 @@ footer {
     margin-top: 520px;
 }
 
-.cake_shop {
+.cake-shop {
     width: 58%;
     background-color: transparent;
     padding: 20px 40px 40px 40px;
     margin-left: 40px;
 }
 
-.cake_shop h2 {
+.cake-shop h2 {
     color: var(--gold);
     font-family: 'title';
     font-size: 96px;
     margin-bottom: 20px;
 }
 
-.cake_shop_sent {
+.cake-shop-sent {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
 }
 
-.cake_shop p {
+.cake-shop p {
     padding: 6px 6px;
 }
 
-.cake_shop a {
+.cake-shop a {
     text-decoration: none;
     color: var(--gold);
     margin-left: 520px;
 }
 
-.cake_shop_img {
+.cake-shop-img {
     position: absolute;
     right: -100px;
     bottom: 80px;
@@ -333,23 +342,23 @@ footer {
 }
 
 /*メニュー*/
-.menu_title {
+.menu-title {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.menu_title h1 {
+.menu-title h1 {
     font-family: 'title';
     font-size: 128px;
     margin: 0 40px;
 }
 
-.menu_page {
+.menu-page {
     margin: 0 auto;
 }
 
-.item_list {
+.item-list {
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -357,17 +366,17 @@ footer {
     gap: 100px;
 }
 
-.item_list article {
+.item-list article {
     display: flex;
     gap: 60px;
 }
 
-.item_list article img {
+.item-list article img {
     width: 445px;
     height: 415px;
 }
 
-.item_list_sent {
+.item-list-sent {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -375,19 +384,19 @@ footer {
     margin: 10px 0;
 }
 
-.item_list_sent h2 {
+.item-list-sent h2 {
     font-family: 'title';
     font-size: 110px;
 }
 
-.item_list_sent p {
+.item-list-sent p {
     font-family: 'price';
     color: var(--gold);
     font-size: 120px;
     margin-left: auto;
 }
 
-.item_list_sent span {
+.item-list-sent span {
     font-size: 72px;
 }
 
@@ -407,7 +416,7 @@ footer {
     border-radius: 78px;
 }
 
-.page_select {
+.page-select {
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -415,14 +424,14 @@ footer {
     margin-top: 20px;
 }
 
-.page_select a {
+.page-select a {
     color: var(--pink);
     text-decoration: underline;
     text-decoration-thickness: 3px;
 }
 
 /*商品ページ*/
-.product_page_a {
+.product-page-a {
     display: flex;
     width: 100%;
     max-width: 1440px;
@@ -433,7 +442,7 @@ footer {
     background-color: var(--cleam);
 }
 
-.product_page {
+.product-page {
     display: flex;
     padding-top: 0;
     gap: 20px;
@@ -467,16 +476,16 @@ footer {
     font-size: 60px;
 }
 
-.product_price {
+.product-price {
     margin-top: 20px;
     font-size: 64px;
 }
 
-.product_price span {
+.product-price span {
     font-size: 36px;
 }
 
-.form_sent {
+.product-form {
     display: flex;
     flex-direction: column;
     margin: 100px 0;
@@ -484,7 +493,7 @@ footer {
     font-size: 24px;
 }
 
-.product_button {
+.product-button {
     display: flex;
     gap: 24px;
 }
@@ -501,26 +510,26 @@ footer {
     background-color: #ffffff;
 }
 
-.date_box {
+.date-box {
     margin-top: 4px;
     display: flex;
     font-size: 18px;
     color: red;
 }
 
-.time_box {
+.time-box {
     margin-top: 2px;
     display: flex;
     font-size: 18px;
     color: red;
 }
 
-.product_form textarea {
+.product-form textarea {
     width: 60%;
     resize: none;
 }
 
-.button_add {
+.add-btn {
     font-family: 'p',
         "Noto Serif JP",
         "Hiragino Mincho ProN",
@@ -540,14 +549,14 @@ footer {
 }
 
 /*カート　空*/
-.emp_title,
-.thx_title {
+.emp-title,
+.thx-title {
     font-family: 'title';
     text-align: center;
     font-size: 96px;
 }
 
-.emp_title span {
+.emp-title span {
     color: var(--pink);
     text-shadow:
         -1px -1px 0 var(--br),
@@ -556,14 +565,14 @@ footer {
         1px 1px 0 var(--br);
 }
 
-.emp_img {
+.emp-img {
     display: flex;
     justify-content: center;
     width: 480px;
     margin: 200px auto;
 }
 
-.emp_button {
+.emp-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -580,13 +589,13 @@ footer {
 }
 
 /*カート*/
-.cart_title {
+.cart-title {
     font-family: 'title';
     font-size: 128px;
     text-align: center;
 }
 
-.cart_table {
+.cart-table {
     font-family: 'p',
         "Noto Serif JP",
         "Hiragino Mincho ProN",
@@ -599,7 +608,7 @@ footer {
     margin: 120px auto 0;
 }
 
-.cart_table h2 {
+.cart-table h2 {
     font-size: 40px;
 }
 
@@ -617,7 +626,7 @@ footer {
     margin: 10px auto 32px;
 }
 
-.cart_item {
+.cart-item {
     display: grid;
     grid-template-columns:
         1fr 200px 240px 240px 80px;
@@ -627,49 +636,49 @@ footer {
     padding: 12px 20px;
 }
 
-.cart_total {
+.cart-total {
     margin-top: 24px;
 }
 
-.total_box {
+.total-box {
     display: flex;
     justify-content: space-between;
     width: 100%;
     align-items: center;
 }
 
-.total_box strong {
+.total-box strong {
     white-space: nowrap;
     margin-right: 200px;
     font-size: 40px;
 }
 
-.cart_line {
+.cart-line {
     margin-top: 120px;
 }
 
-.cart_pay {
+.cart-pay {
     display: flex;
     margin: 18px 0;
 }
 
-.cart_pay h2 {
+.cart-pay h2 {
     width: 80%;
 }
 
-.cart_pay form {
+.cart-pay form {
     display: flex;
     flex-direction: column;
     width: 20%;
     font-size: 24px;
 }
 
-.cart_table a {
+.cart-table a {
     font-size: 24px;
     margin-left: 24px;
 }
 
-.cart_order {
+.cart-order {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -697,7 +706,7 @@ footer {
     padding: 0 430px;
 }
 
-.thx_title {
+.thx-title {
     font-family: 'title';
     margin-top: 100px;
     font-size: 64px;
@@ -709,7 +718,7 @@ footer {
     margin: 30px auto;
 }
 
-.thx_button {
+.thx-button {
     display: flex;
     font-family: 'title';
     gap: 40px;
@@ -717,7 +726,7 @@ footer {
     margin-top: 80px;
 }
 
-.thx_button a {
+.thx-button a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -731,7 +740,7 @@ footer {
 }
 
 /*アバウト*/
-.about_p {
+.about-p {
     width: 100%;
     max-width: 1440px;
     background-color: var(--cleam);
@@ -778,7 +787,7 @@ footer {
     margin-top: 260px;
 }
 
-.kodawari_title {
+.kodawari-title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -786,23 +795,23 @@ footer {
     margin-bottom: 80px;
 }
 
-.kodawari_title h2 {
+.kodawari-title h2 {
     font-size: 64px;
     white-space: nowrap;
 }
 
-.kodawari_box {
+.kodawari-box {
     width: 90%;
     margin: 0 auto;
     display: flex;
     gap: 24px;
 }
 
-.kodawari_box img {
+.kodawari-box img {
     height: 100%;
 }
 
-.kodawari_sent {
+.kodawari-sent {
     font-family: 'p',
         "Noto Serif JP",
         "Hiragino Mincho ProN",
@@ -817,7 +826,7 @@ footer {
     gap: 20px;
 }
 
-.kodawari_sent_02 {
+.kodawari-sent-02 {
     width: 90%;
     margin: 60px auto 80px;
 }
@@ -830,14 +839,14 @@ footer {
     height: 959px;
 }
 
-.ichigo_box {
+.ichigo-box {
     background-color: rgba(255, 255, 255, 0.9);
     width: 1320px;
     height: 740px;
     margin: auto;
 }
 
-.ichigo_box h2 {
+.ichigo-box h2 {
     font-family: 'p',
         "Noto Serif JP",
         "Hiragino Mincho ProN",
@@ -851,7 +860,7 @@ footer {
     margin: 24px auto;
 }
 
-.ichigo_box p {
+.ichigo-box p {
     width: 84%;
     margin: 0 auto 40px;
 }
@@ -875,7 +884,7 @@ footer {
     font-size: 64px;
 }
 
-.yousu_box {
+.yousu-box {
     width: 80%;
     margin: 80px auto 0;
     display: flex;
@@ -883,7 +892,7 @@ footer {
     gap: 60px;
 }
 
-.yousu_sent {
+.yousu-sent {
     display: flex;
     width: 100%;
     font-size: 32px;
@@ -891,42 +900,42 @@ footer {
 }
 
 /*ニュース*/
-.news_page_title {
+.news-page-title {
     font-family: 'p';
     font-size: 32px;
     margin-left: 24px;
 }
 
-.news_page_topicks {
+.news-page-topicks {
     display: flex;
     gap: 12px;
     margin: 32px auto 0;
     padding: 0 24px;
 }
 
-.news_article {
+.news-article {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--br);
 }
 
-.news_article:hover {
+.news-article:hover {
     transform: scale(1.03);
 }
 
-.news_article p {
+.news-article p {
     font-size: 18px;
     padding: 0 4px;
 }
 
-.news_article p span {
+.news-article p span {
     display: block;
     text-align: right;
     margin-right: 4px;
 }
 
 /*記事*/
-.main_news {
+.main-news {
     max-width: 1440px;
     width: 100%;
     background-color: var(--cleam);
@@ -934,33 +943,33 @@ footer {
     padding: 40px 0 260px;
 }
 
-.news_title {
+.news-title {
     display: block;
     margin: 200px auto 20px;
     width: 90%;
     font-size: 32px;
 }
 
-.line_news_02 {
+.line-news-02 {
     display: flex;
     width: 90%;
     margin: 0 auto;
     border-top: 2px solid var(--br);
 }
 
-.news_sent {
+.news-sent {
     width: 80%;
     margin: 10px auto 0;
 }
 
-.news_sent span {
+.news-sent span {
     display: block;
     text-align: right;
     margin: 4px auto;
     font-size: 24px;
 }
 
-.news_sent p {
+.news-sent p {
     display: block;
     margin: 60px auto 0;
     font-size: 30px;
@@ -971,7 +980,7 @@ footer {
     margin: 10px auto;
 }
 
-.news_sent p span {
+.news-sent p span {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -980,7 +989,7 @@ footer {
     font-size: 24px;
 }
 
-.line_news {
+.line-news {
     display: flex;
     border-top: 1px solid var(--br);
     width: 100%;
@@ -988,7 +997,7 @@ footer {
 
 }
 
-.topicks_article_button {
+.topicks-article-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -996,7 +1005,7 @@ footer {
     margin-top: 24px;
 }
 
-.topicks_article_button a {
+.topicks-article-button a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1035,7 +1044,7 @@ footer {
         1px 1px 0 var(--br);
 }
 
-.Reservation_buuton {
+.Reservation-buuton {
     width: 200px;
     height: 38px;
     margin: 20px auto;
@@ -1043,7 +1052,7 @@ footer {
     position: relative;
 }
 
-.Reservation_buuton a {
+.Reservation-buuton a {
     background: var(--cleam);
     border: 1px solid var(--br);
     font-size: 20px;
@@ -1060,7 +1069,7 @@ footer {
     z-index: 2;
 }
 
-.Reservation_box_shadow {
+.Reservation-box-shadow {
     position: absolute;
     z-index: 1;
     left: 6px;
@@ -1106,53 +1115,53 @@ footer {
 }
 
 /*ホバーブルー*/
-.header_title:hover,
-.header_list a:hover,
-.header_list_02 a:hover,
-.cake_shop a:hover,
-.Reservation_buuton a:hover,
+.header-title:hover,
+.header-list a:hover,
+.header-list-02 a:hover,
+.cake-shop a:hover,
+.Reservation-buuton a:hover,
 .pink a:hover,
-.page_select a:hover,
-.product_page_a a:hover,
-.cart_table a:hover,
-.news_article p:hover {
+.page-select a:hover,
+.product-page-a a:hover,
+.cart-table a:hover,
+.news-article p:hover {
     color: var(--bl);
 }
 
-.header_list a:hover {
+.header-list a:hover {
     text-decoration: none;
 }
 
-.menu_go:hover {
+.menu-go:hover {
     color: var(--cleam);
     background-color: var(--gold);
     border-color: var(--gold);
 }
 
-.item_list_sent a:hover,
-.emp_button:hover {
+.item-list-sent a:hover,
+.emp-button:hover {
     background-color: var(--bl);
 }
 
-.button_add:hover {
+.add-btn:hover {
     background-color: var(--pink);
 }
 
-.cart_order:hover {
+.cart-order:hover {
     background-color: var(--pink);
 }
 
-.page_select a:hover {
+.page-select a:hover {
     text-decoration: none;
 }
 
-.button_add:hover,
-.cart_order:hover {
+.add-btn:hover,
+.cart-order:hover {
     color: var(--cleam);
 }
 
-.topicks_article_button a:hover,
-.thx_button a:hover {
+.topicks-article-button a:hover,
+.thx-button a:hover {
     color: var(--cleam);
     background-color: var(--pink);
 }
