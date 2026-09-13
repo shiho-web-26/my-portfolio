@@ -87,7 +87,7 @@ footer {
 /*ヘッダー*/
 .header,
 .header-03 {
-    background: url("images/header.png") center / cover no-repeat;
+    background: url("../images/header.png") center / cover no-repeat;
     height: 960px;
 }
 
@@ -116,7 +116,7 @@ footer {
 
 .header-title,
 .header-title {
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 96px;
     color: var(--cleam);
     text-decoration: none;
@@ -133,7 +133,7 @@ footer {
 .header-list-02 a {
     display: flex;
     font-size: 32px;
-    font-family: 'title';
+    font-family: var(--font-title);
     color: var(--cleam);
     text-decoration: none;
     text-decoration: underline;
@@ -157,14 +157,7 @@ footer {
 }
 
 .header-list-02 a {
-    font-family: 'p',
-        "Noto Serif JP",
-        "Hiragino Mincho ProN",
-        "Hiragino Mincho Pro",
-        "Yu Mincho",
-        "YuMincho",
-        "MS PMincho",
-        serif;
+    font-family: var(--font-body);
     font-size: 28px;
     text-decoration: none;
     padding-top: 20px;
@@ -173,22 +166,25 @@ footer {
 
 /* ヘッダーー０３*/
 .header-03 {
-    background: url("images/header-02.png") center / cover no-repeat;
+    background: url("../images/header-02.png") center / cover no-repeat;
     height: 960px;
 }
 
 /*ホーム*/
-.news {
-    margin: 0 auto;
-    margin-top: -200px;
-    background-color: var(--cleam);
+.index-news-topicks {
+    display: flex;
+    gap: 16px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 0 18px 16px;
+
+    scroll-behavior: smooth;
 }
 
-.news-topicks {
-    display: flex;
-    gap: 10px;
-    margin: 0 18px;
-    justify-content: center;
+.index-news-topicks .news-article {
+    flex: 0 0 320px;
 }
 
 .online-shop {
@@ -229,14 +225,14 @@ footer {
     width: 100%;
     font-size: 128px;
     font-family: 'title';
-    background: url(images/home/background-stripe-02.png);
+    background: url(../images/home/background_stripe_02.png);
 
 }
 
 .pick-up-box {
     display: flex;
     justify-content: center;
-    background: url(images/home/background-stripe.png);
+    background: url(../images/home/background-stripe.png);
     gap: 38px;
     margin: 0;
     width: 100%;
@@ -261,12 +257,12 @@ footer {
 }
 
 .title {
-    font-family: title;
+    font-family: 'title';
     font-size: 48px;
 }
 
 .price {
-    font-family: 'price';
+    font-family: var(--font-price);
     color: var(--gold);
     font-size: 50px;
     margin-left: auto;
@@ -390,7 +386,7 @@ footer {
 }
 
 .item-list-sent p {
-    font-family: 'price';
+    font-family: var(--font-price);
     color: var(--gold);
     font-size: 120px;
     margin-left: auto;
@@ -402,7 +398,7 @@ footer {
 
 .more-link {
     width: 80%;
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 62px;
     display: flex;
     align-items: center;
@@ -465,14 +461,7 @@ footer {
 }
 
 .right h2 {
-    font-family: 'p',
-        "Noto Serif JP",
-        "Hiragino Mincho ProN",
-        "Hiragino Mincho Pro",
-        "Yu Mincho",
-        "YuMincho",
-        "MS PMincho",
-        serif;
+    font-family: var(--font-body);
     font-size: 60px;
 }
 
@@ -530,14 +519,7 @@ footer {
 }
 
 .add-btn {
-    font-family: 'p',
-        "Noto Serif JP",
-        "Hiragino Mincho ProN",
-        "Hiragino Mincho Pro",
-        "Yu Mincho",
-        "YuMincho",
-        "MS PMincho",
-        serif;
+    font-family: var(--font-body);
     font-size: 32px;
     background-color: var(--cleam);
     border: 1px solid var(--br);
@@ -551,7 +533,7 @@ footer {
 /*カート　空*/
 .emp-title,
 .thx-title {
-    font-family: 'title';
+    font-family: var(--font-title);
     text-align: center;
     font-size: 96px;
 }
@@ -580,7 +562,7 @@ footer {
     height: 132px;
     margin: 0 auto;
 
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 48px;
     color: var(--cleam);
     background-color: var(--pink);
@@ -590,20 +572,13 @@ footer {
 
 /*カート*/
 .cart-title {
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 128px;
     text-align: center;
 }
 
 .cart-table {
-    font-family: 'p',
-        "Noto Serif JP",
-        "Hiragino Mincho ProN",
-        "Hiragino Mincho Pro",
-        "Yu Mincho",
-        "YuMincho",
-        "MS PMincho",
-        serif;
+    font-family: var(--font-body);
     width: 90%;
     margin: 120px auto 0;
 }
@@ -690,7 +665,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 64px;
     color: var(--pink);
     background-color: var(--cleam);
@@ -705,46 +680,6 @@ footer {
 
     width: 600px;
     height: 132px;
-}
-
-/*ＴＨＡＮＫ　ＹＯＵページ*/
-.thx img {
-    display: flex;
-    margin: 0 auto;
-    padding: 0 430px;
-}
-
-.thx-title {
-    font-family: 'title';
-    margin-top: 100px;
-    font-size: 64px;
-}
-
-.thx p {
-    font-size: 24px;
-    text-align: center;
-    margin: 30px auto;
-}
-
-.thx-button {
-    display: flex;
-    font-family: 'title';
-    gap: 40px;
-    justify-content: center;
-    margin-top: 80px;
-}
-
-.thx-button a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 260px;
-    height: 60px;
-    background-color: var(--cleam);
-    color: var(--br);
-    border: 1px solid var(--br);
-    border-radius: 72px;
-    font-size: 28px;
 }
 
 /*アバウト*/
@@ -820,14 +755,7 @@ footer {
 }
 
 .kodawari-sent {
-    font-family: 'p',
-        "Noto Serif JP",
-        "Hiragino Mincho ProN",
-        "Hiragino Mincho Pro",
-        "Yu Mincho",
-        "YuMincho",
-        "MS PMincho",
-        serif;
+    font-family: var(--font-body);
     font-size: 32px;
     display: flex;
     flex-direction: column;
@@ -855,14 +783,7 @@ footer {
 }
 
 .ichigo-box h2 {
-    font-family: 'p',
-        "Noto Serif JP",
-        "Hiragino Mincho ProN",
-        "Hiragino Mincho Pro",
-        "Yu Mincho",
-        "YuMincho",
-        "MS PMincho",
-        serif;
+    font-family: var(--font-body);
     font-size: 64px;
     text-align: center;
     margin: 24px auto;
@@ -880,14 +801,7 @@ footer {
 }
 
 .yousu h2 {
-    font-family: 'p',
-        "Noto Serif JP",
-        "Hiragino Mincho ProN",
-        "Hiragino Mincho Pro",
-        "Yu Mincho",
-        "YuMincho",
-        "MS PMincho",
-        serif;
+    font-family: var(--font-body);
     text-align: center;
     font-size: 64px;
 }
@@ -909,7 +823,7 @@ footer {
 
 /*ニュース*/
 .news-page-title {
-    font-family: 'p';
+    font-family: var(--font-body);
     font-size: 32px;
     margin-left: 24px;
 }
@@ -921,29 +835,29 @@ footer {
     padding: 0 24px;
 }
 
-.news-article {
+.news-box {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--br);
 }
 
-.news-article:hover {
+.news-box:hover {
     transform: scale(1.03);
 }
 
-.news-article p {
+.news-box p {
     font-size: 18px;
     padding: 0 4px;
 }
 
-.news-article p span {
+.news-box p span {
     display: block;
     text-align: right;
     margin-right: 4px;
 }
 
 /*記事*/
-.main-news {
+.news-article {
     max-width: 1440px;
     width: 100%;
     background-color: var(--cleam);
@@ -977,10 +891,11 @@ footer {
     font-size: 24px;
 }
 
-.news-sent p {
+.news-article p {
     display: block;
     margin: 60px auto 0;
     font-size: 30px;
+    gap: 8px;
 }
 
 .kuuhaku {
@@ -1042,7 +957,7 @@ footer {
 }
 
 .white h2 {
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 96px;
     color: var(--pink);
     text-shadow:
@@ -1132,7 +1047,7 @@ footer {
 .page-select a:hover,
 .product-page-a a:hover,
 .cart-table button:hover,
-.news-article p:hover {
+.news-box p:hover {
     color: var(--bl);
 }
 

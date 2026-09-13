@@ -20,6 +20,7 @@
                         <li><a href="about.html">ABOUT</a></li>
                         <li><a href="menu.html">MENU</a></li>
                         <li><a href="cart.html">CART</a></li>
+                        <li><a href="news.html">NEWS</a></li>
                     </ul>
                 </nav>
             </div>
@@ -28,17 +29,7 @@
     </header>
 
     <main>
-
-        <section class="news">
-
-            <div class="news-topicks">
-                <a href="#"><img src="images/home/news-01.png" alt="新商品『チョコレートケーキ』登場"></a>
-                <a href="#"><img src="images/home/news-02.png" alt="お年玉キャンペーン『最大10% off』"></a>
-                <a href="#"><img src="images/home/news-03.png" alt="年末年始の営業について"></a>
-                <a href="#"><img src="images/home/news-04.png" alt="期間限定『クリスマスケーキ』登場"></a>
-            </div>
-
-        </section>
+        <section id="news-page-topicks" class="index-news-topicks"></section>
 
         <section class="online-shop">
             <strong>ネットでご予約・店舗で受け取り</strong>
@@ -53,7 +44,6 @@
             <h2 class="pick-up-title">Pick Up</h2>
 
             <div class="pick-up-box">
-
                 <article>
                     <a href="#">
                         <img src="images/products/chocolatecake.png" alt="チョコレートケーキの写真">
@@ -77,15 +67,12 @@
                         <p class="price"><strong>440</strong><span>yen~</span></p>
                     </a>
                 </article>
-
             </div>
 
             <a href="menu.html" class="menu-go"><strong>MENU</strong></a>
-
         </section>
 
         <section class="cake-shop-box">
-
             <div class="cake-shop">
                 <h2>Cake Shop</h2>
 
@@ -147,6 +134,12 @@
 
     </footer>
 
+    <script src="js/news.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        displayNews();
+    </script>
 </body>
 
 </html>

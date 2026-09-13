@@ -395,3 +395,48 @@ function displayCartPage() {
 
     }
 }
+
+function displayNews() {
+    const newsPageTopicks = document.getElementById("news-page-topicks");
+
+    for (let i = 0; i < news.length; i++) {
+        const id = news[i].id;
+        const img = `images/news/${id}.png`;
+        const title = news[i].title;
+        const date = news[i].date;
+
+        newsPageTopicks.innerHTML += `
+            <article class="news-box">
+                    <a href="article.html?id=${id}">
+                    <img src="${img}" alt="${title}">
+                    <p>
+                        ${title}<br>
+                        <span>${date}</span>
+                    </p>
+                </a>
+            </article>
+        `;
+    }
+}
+
+function displayNewsDetail(id) {
+    const article = news.find((news) => news.id === id);
+
+    const title = article.title;
+    const date = article.date;
+    const description = article.description;
+
+    const newsArticle = document.getElementById("news-article");
+
+    newsArticle.innerHTML = `
+        <h2 class="news_title">${title}</h2>
+        <div class="line-02"></div>
+        <div class="news_sent">
+            <span>${date}</span>
+            <p>${description}</p>
+              
+            <div class="line"></div>
+        </div>
+        <button id="back-btn">↼Back</button>
+    `;
+}

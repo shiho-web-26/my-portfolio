@@ -1,11 +1,12 @@
 /*
-    id: id,
-    name: name,
-    description: "description",
-    sizePrices: {
-        4: price,
-        5: price,
-        6: price,
+    {
+        id: id,
+        name: name,
+        description: "description",
+        sizePrices: {
+            4: price,
+            5: price,
+            6: price,
         slice: price,
     },
 */

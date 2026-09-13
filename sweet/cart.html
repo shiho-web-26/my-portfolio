@@ -20,6 +20,7 @@
                         <li><a href="about.html">ABOUT</a></li>
                         <li><a href="menu.html">MENU</a></li>
                         <li><a href="#">CART</a></li>
+                        <li><a href="news.html">NEWS</a></li>
                     </ul>
                 </nav>
             </div>
@@ -78,7 +79,7 @@
                 </div>
 
                 <div class="line"></div>
-                <button>↼Back</button>
+                <button id="back-btn">↼Back</button>
             </section>
 
             <button id="order-btn" class="cart-order" type="button">Place Order</button>
@@ -124,6 +125,11 @@
 
     <script>
         displayCartPage();
+
+        const backBtn = document.getElementById("back-btn");
+        backBtn.addEventListener("click", () => {
+            history.back();
+        });
     </script>
 
 </body>

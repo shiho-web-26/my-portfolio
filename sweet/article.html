@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SWEET. | Online Shop | Product</title>
+    <title>SWEET. | Online Shop | News</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -29,7 +29,9 @@
     </header>
 
     <main>
-        <section class="product-page" id="product-page"></section>
+
+        <div id="news-article" class="news-article"></div>
+
     </main>
 
     <footer>
@@ -40,7 +42,7 @@
             <h2>SWEET.</h2>
 
             <div class="Reservation-buuton">
-                <a href="#">Reservation</a>
+                <a href="menu.html">Reservation</a>
                 <div class="Reservation-box-shadow"></div>
             </div>
 
@@ -61,19 +63,24 @@
             <p>|</p>
             <a href="cart.html">CART</a>
             <p>|</p>
-            <a href="news.html">NEWS</a>
+            <a href="#">NEWS</a>
         </section>
 
     </footer>
 
-    <script src="js/product.js"></script>
+    <script src="js/news.js"></script>
     <script src="js/script.js"></script>
 
     <script>
         const params = new URLSearchParams(window.location.search);
         const id = params.get("id");
 
-        displayProductDetail(id);
+        displayNewsDetail(id);
+
+        const backBtn = document.getElementById("back-btn");
+        backBtn.addEventListener("click", () => {
+            history.back();
+        });
     </script>
 
 </body>
