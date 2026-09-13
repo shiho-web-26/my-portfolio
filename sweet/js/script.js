@@ -87,8 +87,9 @@ function displayProductDetail(id) {
                     <p id="date-msg">※受取日は、ご注文日から3日後以降をご指定いただけます。</p>
                 </div>
                 <div class="time-box">
-                    <input required id="timeLabel" type="time" min="11:00" max="19:00" step="60">
-                    <p id="timeMsg"></p>
+                    <select id="time-label" required>
+                        <option value="">受取時間を選択してください</option>
+                    </select>
                 </div>
             </dis>
 
@@ -171,6 +172,23 @@ function displayProductDetail(id) {
     const day = String(minDate.getDate()).padStart(2, "0");
 
     dateLabel.min = `${year}-${month}-${day}`;
+
+    //時間　30分毎
+    const timeSelect = document.getElementById("time-label");
+
+    for (let hour = 11; hour <= 19; hour++) {
+        const times = hour === 19 ? ["00"] : ["00", "30"];
+
+        times.forEach((minute) => {
+            const time = `${String(hour).padStart(2, "0")}:${minute}`;
+
+            const option = document.createElement("option");
+            option.value = time;
+            option.textContent = time;
+
+            timeSelect.appendChild(option);
+        });
+    }
 
     //ラベル
     const messagePlateRadios = document.querySelectorAll(
@@ -277,12 +295,103 @@ function displayProductDetail(id) {
         cart.push(cartItem);
         localStorage.setItem("cart", JSON.stringify(cart));
 
+        alert("カートに追加しました。");
         window.location.reload();
     });
 }
 
 function displayCartPage() {
-    localStorage.getItem("cart", JSON.stringify(cart));
-
+    localStorage.getItem("cart", JSON.stringify(cart));//[]
     console.log(cart);
+
+    const cartPageEmp = document.getElementById("cart-page-emp");
+    const cartPage = document.getElementById("cart-page");
+
+    if (cart.length === 0) {
+        cartPage.classList.add("hide");
+        cartPageEmp.classList.remove("hide");
+    } else {
+        cartPageEmp.classList.add("hide");
+        cartPage.classList.remove("hide");
+
+        const cartArea = document.getElementById("cart-area");
+
+        let totalPrice = 0;
+
+        for (let i = 0; i < cart.length; i++) {
+            const product = products.find((product) => product.id === cart[i].productId);
+            const name = product.name;
+            const qty = cart[i].quantity;
+            const price = cart[i].price;
+            const subtotal = price * qty;
+
+            cartArea.innerHTML += `
+            <div class="cart-area-product">
+              <p>${name}</p>
+              <p>
+                <button type="button" data-action="minus" data-index="${i}">-</button>
+                <span>${qty}</span>
+                <button type="button" data-action="plus" data-index="${i}">+</button>
+               </p>
+              <p>￥${price.toLocaleString()}</p>
+              <p>￥${subtotal.toLocaleString()}</p>
+
+              <p class="cart_del">
+                <button type="button" data-action="remove" data-index="${i}">
+                  削除
+                </button>
+              </p>
+            </div>
+            `
+
+            totalPrice += subtotal;
+        }
+
+        cartArea.addEventListener("click", (event) => {
+            const button = event.target.closest("button");
+
+            if (!button) {
+                return;
+            }
+
+            const action = button.dataset.action;
+            const index = Number(button.dataset.index);
+
+            if (action === "plus") {
+                if (cart[index].quantity < 99) {
+                    cart[index].quantity++;
+                }
+            }
+
+            if (action === "minus") {
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity--;
+                }
+            }
+
+            if (action === "remove") {
+                cart.splice(index, 1);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            window.location.reload();
+        });
+
+        const total = document.getElementById("total");
+        total.textContent = totalPrice.toLocaleString();
+
+        const orderBtn = document.getElementById("order-btn");
+        orderBtn.addEventListener("click", () => {
+            const pay = document.querySelector('input[name="paytype"]:checked');
+            if (!pay) {
+                alert("お支払い方法を選択してください。");
+                return;
+            }
+
+            alert("お支払いが完了しました。（ダミー）");
+            localStorage.removeItem("cart");
+            window.location.reload();
+        });
+
+    }
 }

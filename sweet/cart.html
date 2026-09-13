@@ -28,55 +28,61 @@
     </header>
 
     <main>
-        <h1 class="cart-title">Cart</h1>
+        <div id="cart-page-emp" class="cart-page-emp hide">
+            <h1 class="emp_title">Your Cart is <span>Empty</span></h1>
+            <img src="images/cart/plate.png" alt="空のプレート" class="emp_img">
 
-        <section class="cart-table">
+            <a href="menu.html" class="emp_button">Continue shopping...</a>
+        </div>
 
-            <div class="orderlist">
-                <p>Prodcut Details</p>
-                <p>Quantity</p>
-                <p>Price</p>
-                <p>Total</p>
-            </div>
+        <div id="cart-page" class="cart-page hide">
+            <h1 class="cart-title">Cart</h1>
 
-            <div id="cartArea"></div>
-
-            <div class="cart-total">
-                <div class="total-box">
-                    <h2>Total</h2>
-                    <strong>￥0</strong>
+            <section class="cart-table">
+                <div class="orderlist">
+                    <p>Prodcut Details</p>
+                    <p>Quantity</p>
+                    <p>Price</p>
+                    <p>Total</p>
                 </div>
-                <div class="line-02"></div>
-            </div>
 
-            <div class="line cart-line"></div>
+                <div id="cart-area" class="cart-area"></div>
 
-            <div class="cart-pay">
-                <h2>Payment Method</h2>
+                <div class="cart-total">
+                    <div class="total-box">
+                        <h2>Total</h2>
+                        <strong>￥<span id="total">0</span></strong>
+                    </div>
+                    <div class="line-02"></div>
+                </div>
 
-                <form>
-                    <label>
-                        <input type="radio" name="paytype" required>
-                        クレジットカード
-                    </label>
-                    <label>
-                        <input type="radio" name="paytype">
-                        PayPay
-                    </label>
-                    <label>
-                        <input type="radio" name="paytype">
-                        銀行振込
-                    </label>
-                </form>
-            </div>
+                <div class="line cart-line"></div>
 
-            <div class="line"></div>
-            <a href="javascript:history.back()">↼Back</a>
+                <div class="cart-pay">
+                    <h2>Payment Method</h2>
 
-        </section>
+                    <form>
+                        <label>
+                            <input type="radio" name="paytype" required>
+                            クレジットカード
+                        </label>
+                        <label>
+                            <input type="radio" name="paytype">
+                            PayPay
+                        </label>
+                        <label>
+                            <input type="radio" name="paytype">
+                            銀行振込
+                        </label>
+                    </form>
+                </div>
 
-        <button id="orderBtn" class="cart-order" type="button">Place Order</button>
+                <div class="line"></div>
+                <button>↼Back</button>
+            </section>
 
+            <button id="order-btn" class="cart-order" type="button">Place Order</button>
+        </div>
     </main>
 
     <footer>
