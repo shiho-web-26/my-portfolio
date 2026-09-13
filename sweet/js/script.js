@@ -407,7 +407,7 @@ function displayNews() {
 
         newsPageTopicks.innerHTML += `
             <article class="news-box">
-                    <a href="article.html?id=${id}">
+                    <a class="news-link" href="article.html?id=${id}">
                     <img src="${img}" alt="${title}">
                     <p>
                         ${title}<br>
