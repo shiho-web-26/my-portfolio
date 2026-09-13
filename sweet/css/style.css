@@ -52,13 +52,15 @@ a {
 }
 
 body {
-    background-color: var(--cleam);
     margin: 0;
-    font-size: 36px;
+    padding: 0;
+
+    background-color: var(--cleam);
     color: var(--br);
 
-    margin: 0 auto;
-    padding: 0;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
 }
 
 img {
@@ -224,7 +226,7 @@ footer {
     align-items: center;
     width: 100%;
     font-size: 128px;
-    font-family: 'title';
+    font-family: var(--font-title);
     background: url(../images/home/background_stripe_02.png);
 
 }
@@ -257,7 +259,7 @@ footer {
 }
 
 .title {
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 48px;
 }
 
@@ -308,7 +310,7 @@ footer {
 
 .cake-shop h2 {
     color: var(--gold);
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 96px;
     margin-bottom: 20px;
 }
@@ -345,7 +347,7 @@ footer {
 }
 
 .menu-title h1 {
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 128px;
     margin: 0 40px;
 }
@@ -381,7 +383,7 @@ footer {
 }
 
 .item-list-sent h2 {
-    font-family: 'title';
+    font-family: var(--font-title);
     font-size: 110px;
 }
 
@@ -716,7 +718,7 @@ footer {
 
 .trans {
     display: flex;
-    transform: transform 0.6s ease;
+    transition: transform 0.6s ease;
 }
 
 .trans img {
@@ -771,7 +773,7 @@ footer {
     margin-top: 260px;
     display: flex;
     flex-direction: column;
-    background: url(images/about/hatake.png);
+    background: url(../images/about/hatake.png);
     height: 959px;
 }
 
