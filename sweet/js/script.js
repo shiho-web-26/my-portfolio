@@ -36,7 +36,7 @@ function displayProductDetail(id) {
     const name = product.name;
     const description = product.description;
 
-    let priceId = 5;
+    let priceId = 4;
     const price = product.sizePrices[priceId];
     const sizeNum = Object.keys(product.sizePrices).find(key => product.sizePrices[key] === price);
     let size;
@@ -48,20 +48,22 @@ function displayProductDetail(id) {
 
     productPage.innerHTML = `
     <section class="left">
-        <div id="img"><img id="img" src="${img}" alt="${name}の写真"></div>
-        <p>
+        <div id="product-image">
+            <img src="${img}" alt="${name}の写真">
+        </div>
+        <div>
             ※写真はイメージです<br>
             <div id="whole-cake">
                 ※4号サイズ、直径約12cm、2~3人分です<br>
                 ※5号サイズ、直径約15cm、4~6人分です<br>
                 ※6号サイズ、直径約18cm、6~8人分です<br>
             </div>        
-        </p>
+        </div>
     </section>
 
     <section class="right">
         <h2>${name}<span id="size">${size}</span></h2>
-        <p>${description}</p>
+        ${description}
         <p class="product-price" id="price">￥${price.toLocaleString()}<span>（税込）</span></p>
 
 
@@ -82,7 +84,6 @@ function displayProductDetail(id) {
             </div>
 
             <div class="product-select">
-                <script id="date-time"></script>
                 <label>受け取り日時</label><br>
                 <div class="date-box">
                     <input id="date-label" type="date" required>
@@ -93,7 +94,7 @@ function displayProductDetail(id) {
                         <option value="">受取時間を選択してください</option>
                     </select>
                 </div>
-            </dis>
+            </div>
 
             <div class="option-group message-plate">
                 <span>メッセージプレート</span>
@@ -126,11 +127,32 @@ function displayProductDetail(id) {
     </section>
     `;
 
+    //個数変更
+    const minusBtn = document.getElementById("minusBtn");
+    const plusBtn = document.getElementById("plusBtn");
+    const qtyBtn = document.getElementById("qtyBtn");
+
+    plusBtn.addEventListener("click", () => {
+        const quantity = Number(qtyBtn.textContent);
+
+        if (quantity < 99) {
+            qtyBtn.textContent = quantity + 1;
+        }
+    });
+
+    minusBtn.addEventListener("click", () => {
+        const quantity = Number(qtyBtn.textContent);
+
+        if (quantity > 1) {
+            qtyBtn.textContent = quantity - 1;
+        }
+    });
+
     //サイズ変更
     const sizeSelect = document.getElementById("sizeSelect");
     const priceElement = document.getElementById("price");
     const sizeElement = document.getElementById("size");
-    const imgElement = document.getElementById("img");
+    const imgElement = document.getElementById("product-img");
 
     sizeSelect.addEventListener("change", () => {
 
@@ -280,7 +302,7 @@ function displayProductDetail(id) {
         );
 
         const pickupDate = document.getElementById("date-label").value;
-        const pickupTime = document.getElementById("date-time").value;
+        const pickupTime = document.getElementById("time-label").value;
 
         const messagePlateSelected = document.querySelector(
             'input[name="message-plate"]:checked'
@@ -340,9 +362,6 @@ function displayPickUp() {
 }
 
 function displayCartPage() {
-    localStorage.getItem("cart", JSON.stringify(cart));//[]
-    console.log(cart);
-
     const cartPageEmp = document.getElementById("cart-page-emp");
     const cartPage = document.getElementById("cart-page");
 
@@ -360,13 +379,15 @@ function displayCartPage() {
         for (let i = 0; i < cart.length; i++) {
             const product = products.find((product) => product.id === cart[i].productId);
             const name = product.name;
+            const size = cart[i].size === "slice" ? "1カット" : `${cart[i].size}号`;
             const qty = cart[i].quantity;
             const price = cart[i].price;
             const subtotal = price * qty;
 
             cartArea.innerHTML += `
             <div class="cart-area-product">
-              <p>${name}</p>
+              <strong>${name}</strong>
+              <p>${size}</p>
               <p>
                 <button type="button" data-action="minus" data-index="${i}">-</button>
                 <span>${qty}</span>

@@ -14,9 +14,6 @@
     --bl: #9ab4c4;
 
     --section-space: 160px;
-
-    user-select: none;
-    -webkit-user-select: none;
 }
 
 img {
@@ -445,7 +442,7 @@ header {
     display: block;
 }
 
-.left>p {
+.left>div {
     margin-top: 16px;
 
     font-size: 16px;
@@ -631,7 +628,7 @@ header {
 .orderlist,
 .cart-area-product {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 100px;
+    grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr 100px;
     gap: 20px;
     align-items: center;
 }
@@ -1039,7 +1036,7 @@ footer {
 }
 
 .footer-main {
-    padding: 50px 20px 30px;
+    padding: 50px 20px 10px;
 
     display: flex;
     flex-direction: column;
