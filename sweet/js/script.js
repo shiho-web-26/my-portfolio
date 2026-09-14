@@ -8,7 +8,7 @@ function displayProducts() {
         const img = `images/products-no-bg/${id}.png`
 
         const name = products[i].name;
-        const priceMin = Object.values(products[0].sizePrices)[0];
+        const priceMin = Object.values(products[i].sizePrices)[0];
 
         itemList.innerHTML += `
             <article>
@@ -51,13 +51,15 @@ function displayProductDetail(id) {
         <div id="img"><img id="img" src="${img}" alt="${name}の写真"></div>
         <p>
             ※写真はイメージです<br>
-            ※4号サイズ、直径約12cm、2~3人分です<br>
-            ※5号サイズ、直径約15cm、4~6人分です<br>
-            ※6号サイズ、直径約18cm、6~8人分です<br>
+            <div id="whole-cake">
+                ※4号サイズ、直径約12cm、2~3人分です<br>
+                ※5号サイズ、直径約15cm、4~6人分です<br>
+                ※6号サイズ、直径約18cm、6~8人分です<br>
+            </div>        
         </p>
     </section>
 
-    <section>
+    <section class="right">
         <h2>${name}<span id="size">${size}</span></h2>
         <p>${description}</p>
         <p class="product-price" id="price">￥${price.toLocaleString()}<span>（税込）</span></p>
@@ -93,18 +95,16 @@ function displayProductDetail(id) {
                 </div>
             </dis>
 
-            <div class="option-group">
+            <div class="option-group message-plate">
                 <span>メッセージプレート</span>
                 <label>
                     <input type="radio" name="message-plate" value="不要" checked>
                     不要
                 </label>
-
                 <label>
                     <input type="radio" name="message-plate" value="必要">
                     必要
                 </label>
-
                 <div id="message-plate-detail"></div>
            </div>
 
@@ -114,12 +114,10 @@ function displayProductDetail(id) {
                     <input type="radio" name="candles" value="不要" checked>
                     不要
                 </label>
-
                 <label>
                     <input type="radio" name="candles" value="必要">
                     必要
                 </label>
-
                 <div id="candles-detail"></div>
             </div>
 
@@ -139,6 +137,7 @@ function displayProductDetail(id) {
         priceId = sizeSelect.value;
 
         const price = product.sizePrices[priceId];
+        const wholeCake = document.getElementById("whole-cake");
 
         let size;
 
@@ -147,11 +146,13 @@ function displayProductDetail(id) {
             imgElement.innerHTML = `
             <img id="img" src="images/products/${id}.png" alt="${name}の写真">
             `
+            wholeCake.classList.remove("hide");
         } else {
             size = "1カット";
             imgElement.innerHTML = `
             <img id="img" src="images/products/${id}-slice.png" alt="${name}の写真">
             `
+            wholeCake.classList.add("hide");
         }
 
         priceElement.innerHTML = `
@@ -204,13 +205,21 @@ function displayProductDetail(id) {
 
             if (selected.value === "必要") {
                 messagePlate.innerHTML = `
-                <label class="product-form" for="message">
+                <label class="option-detail" for="message">
                     <span>
-                        <strong>メッセージプレートをご希望の方は、メッセージ内容をご記入ください。</strong><br>
+                        <strong>
+                            メッセージプレートをご希望の方は、
+                            メッセージ内容をご記入ください。
+                        </strong><br>
                         ※不要の場合は「不要」とお書きください。
                     </span>
-                    <textarea type="message" rows="1" placeholder="例）Happy Birthday ◯◯" id="message"
-                        required></textarea>
+
+                    <textarea
+                        rows="1"
+                        placeholder="例）Happy Birthday ◯◯"
+                        id="message"
+                        required
+                    ></textarea>
                 </label>
                 `;
             } else {
@@ -233,12 +242,21 @@ function displayProductDetail(id) {
 
             if (selected.value === "必要") {
                 candles.innerHTML = `
-                <label class="product-form" for="candle">
+                <label class="option-detail" for="candle">
                     <span>
-                        <strong>ローソクをご希望の方は、長さ（長or短）とご希望の本数をご記入ください。</strong><br>
+                        <strong>
+                            ローソクをご希望の方は、長さ（長or短）とご希望の本数をご記入ください。
+                        </strong><br>
                         ※不要の場合は「不要」とお書きください。
                     </span>
-                    <textarea type="message" rows="1" placeholder="例）長3本と短2本" id="candle" required></textarea>
+
+                    <textarea 
+                        type="message" 
+                        rows="1" 
+                        placeholder="例）長3本と短2本" 
+                        id="candle" 
+                        required
+                    ></textarea>
                 </label>
                 `;
             } else {
@@ -307,7 +325,7 @@ function displayPickUp() {
         const product = products[i];
         const img = `images/products/${product.id}.png`;
         const name = product.name;
-        const priceMin = Object.values(products[0].sizePrices)[0];
+        const priceMin = Object.values(product.sizePrices)[0];
 
         pickUpBox.innerHTML += `
             <article>
@@ -420,14 +438,17 @@ function displayCartPage() {
 function displayNews() {
     const newsPageTopicks = document.getElementById("news-page-topicks");
 
-    for (let i = 0; i < news.length; i++) {
+    const page = window.location.pathname.split("/").pop();
+    const isIndex = page === "" || page === "index.html";
+
+    for (let i = news.length - 1; i >= 0; i--) {
         const id = news[i].id;
         const img = `images/news/${id}.png`;
         const title = news[i].title;
         const date = news[i].date;
 
         newsPageTopicks.innerHTML += `
-            <article class="news-box">
+            <article class="${isIndex ? "news-box-index" : "news-box"}">
                     <a href="article.html?id=${id}">
                     <img src="${img}" alt="${title}">
                     <p>
@@ -457,6 +478,6 @@ function displayNewsDetail(id) {
             <p>${description}</p>              
         </div>
         <div class="line"></div>
-        <button id="back-btn">↼Back</button>
+        <button class="back-btn" id="back-btn">↼Back</button>
     `;
 }
