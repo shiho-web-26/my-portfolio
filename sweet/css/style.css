@@ -60,7 +60,6 @@ body {
 
     font-family: var(--font-body);
     font-size: 16px;
-    line-height: 1.7;
 }
 
 img {
@@ -72,7 +71,6 @@ main,
 header,
 footer {
     background-color: var(--cleam);
-
     margin: 0 auto;
 }
 
@@ -86,90 +84,51 @@ footer {
     border-top: 2px solid var(--br);
 }
 
-/*ヘッダー*/
-.header,
-.header-03 {
-    background: url("../images/header.png") center / cover no-repeat;
-    height: 960px;
+.hide {
+    display: none;
 }
 
-.header-box,
-.header-box-02 {
-    justify-content: space-between;
+/* ヘッダー */
+header {
     width: 100%;
-    max-width: 1440px;
-    margin: 0;
-    padding: 0 24px;
+    padding: 20px 32px;
+
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
-}
 
-.header-box {
-    color: var(--cleam);
-    background: rgba(255, 255, 255, .2);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
-    backdrop-filter: blur(5px);
+    background-color: var(--cleam);
+    border-bottom: 1px solid var(--br);
 
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.header-title,
 .header-title {
     font-family: var(--font-title);
-    font-size: 96px;
-    color: var(--cleam);
-    text-decoration: none;
+    font-size: 64px;
+    line-height: 1;
 }
 
-.header-list nav ul,
-.header-list-02 nav ul {
+.header-list nav ul {
     display: flex;
+    align-items: center;
+    gap: 32px;
+
     list-style: none;
-    gap: 20px;
 }
 
-.header-list a,
-.header-list-02 a {
-    display: flex;
-    font-size: 32px;
-    font-family: var(--font-title);
-    color: var(--cleam);
-    text-decoration: none;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-}
-
-/*ヘッダー０２*/
-.header-02 {
-    background-color: var(--cleam);
-    border-bottom: 1px solid var(--br);
-    padding: 40px 20px 10px;
-}
-
-.header-box-02 a {
-    color: var(--br);
-    font-size: 72px;
-}
-
-.header-list-02 nav ul {
-    gap: 24px;
-}
-
-.header-list-02 a {
+.header-list a {
     font-family: var(--font-body);
-    font-size: 28px;
+    font-size: 20px;
+
+    color: var(--br);
     text-decoration: none;
-    padding-top: 20px;
-    justify-content: flex-end;
 }
 
-/* ヘッダーー０３*/
-.header-03 {
-    background: url("../images/header-02.png") center / cover no-repeat;
-    height: 960px;
+.header-list a:hover {
+    color: var(--bl);
 }
 
 /*ホーム*/
@@ -185,7 +144,7 @@ footer {
     scroll-behavior: smooth;
 }
 
-.index-news-topicks .news-article {
+.index-news-topicks .news-box {
     flex: 0 0 320px;
 }
 
@@ -211,132 +170,127 @@ footer {
     margin: 32px auto;
 }
 
-.pick-up {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 0;
-    margin-top: 260px;
-    width: 100%;
+.online-shop p {
+    font-size: 36px;
 }
 
-.pick-up-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: 128px;
-    font-family: var(--font-title);
-    background: url(../images/home/background_stripe_02.png);
+.pick-up {
+    margin-top: 260px;
+    text-align: center;
+}
 
+.pick-up h2 {
+    font: 128px/1 var(--font-title);
 }
 
 .pick-up-box {
     display: flex;
     justify-content: center;
-    background: url(../images/home/background-stripe.png);
     gap: 38px;
-    margin: 0;
-    width: 100%;
+
+    padding: 80px 8% 60px;
+
+    background: url("../images/index/background-stripe.png") center / 100% 100% no-repeat;
 }
 
 .pick-up-box article {
-    width: 380px;
-    height: 700px;
-    background-color: var(--cleam);
-    margin: 60px 0;
-}
-
-.pick-up-box a:hover {
-    transform: scale(1.03);
+    width: 30%;
+    max-width: 380px;
+    background: var(--cleam);
 }
 
 .pick-up-box article a {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    color: var(--br);
+    display: block;
 }
 
-.title {
-    font-family: var(--font-title);
-    font-size: 48px;
+.pick-up-box img {
+    display: block;
 }
 
-.price {
-    font-family: var(--font-price);
+.pick-up-box .title {
+    font: 48px/1.1 var(--font-title);
+    white-space: nowrap;
+}
+
+.pick-up-box .price {
+    margin: 8px 12px 12px;
+    text-align: right;
+
+    font: 50px/1 var(--font-price);
     color: var(--gold);
-    font-size: 50px;
-    margin-left: auto;
-    margin-right: 10px;
 }
 
-.price span {
-    font-size: 48px;
+.pick-up-box .price span {
+    font-size: 32px;
+}
+
+.pick-up-box article:hover {
+    transform: scale(1.03);
 }
 
 .menu-go {
     display: block;
     width: 300px;
-    height: 76px;
-    margin: 0 auto;
-    margin-top: 42px;
-    background-color: var(--cleam);
-    text-decoration: none;
-    border: 2px solid var(--gold);
-    border-radius: 28px;
-    color: var(--gold);
-    font-size: 48px;
-}
 
-.cake-shop-box {
-    display: flex;
-    background-color: var(--cleam);
-    border: 2px solid var(--gold);
-    border-left: none;
-    width: 90%;
-    min-height: 620px;
-    overflow: visible;
-    position: relative;
-    margin-top: 520px;
+    margin: 40px auto 0;
+    padding: 8px 0;
+
+    border-radius: 28px;
+
+    background: var(--gold);
+    color: var(--cleam);
+
+    font: 48px/1.2 var(--font-title);
 }
 
 .cake-shop {
-    width: 58%;
-    background-color: transparent;
-    padding: 20px 40px 40px 40px;
-    margin-left: 40px;
+    width: 90%;
+    margin-top: 400px;
+
+    display: flex;
+    align-items: flex-start;
+
+    border: 1px solid var(--gold);
+    border-left: none;
+}
+
+.cake-shop-box {
+    flex: 1;
+    padding: 40px 7%;
 }
 
 .cake-shop h2 {
-    color: var(--gold);
+    margin-bottom: 30px;
+
     font-family: var(--font-title);
-    font-size: 96px;
-    margin-bottom: 20px;
+    font-size: 80px;
+    color: var(--gold);
 }
 
 .cake-shop-sent {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
+    font-size: 28px;
+    line-height: 1.5;
 }
 
-.cake-shop p {
-    padding: 6px 6px;
+.cake-shop-sent p+p {
+    margin-top: 20px;
 }
 
-.cake-shop a {
-    text-decoration: none;
+.cake-shop-box a {
+    display: block;
+    margin-top: 20px;
+
+    text-align: right;
+    font-size: 28px;
     color: var(--gold);
-    margin-left: 520px;
 }
 
 .cake-shop-img {
-    position: absolute;
-    right: -100px;
-    bottom: 80px;
     width: 42%;
-    max-width: 580px;
+    max-width: 520px;
+
+    margin-top: -160px;
+    margin-right: -60px;
 }
 
 /*メニュー*/
@@ -533,14 +487,13 @@ footer {
 }
 
 /*カート　空*/
-.emp-title,
-.thx-title {
+.cart-page-emp h1 {
     font-family: var(--font-title);
     text-align: center;
     font-size: 96px;
 }
 
-.emp-title span {
+.cart-page-emp span {
     color: var(--pink);
     text-shadow:
         -1px -1px 0 var(--br),
@@ -549,14 +502,14 @@ footer {
         1px 1px 0 var(--br);
 }
 
-.emp-img {
+.cart-page-emp img {
     display: flex;
     justify-content: center;
     width: 480px;
     margin: 200px auto;
 }
 
-.emp-button {
+.cart-page-emp button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -867,18 +820,11 @@ footer {
     padding: 40px 0 260px;
 }
 
-.news-title {
+.news-article h2 {
     display: block;
     margin: 200px auto 20px;
     width: 90%;
     font-size: 32px;
-}
-
-.line-news-02 {
-    display: flex;
-    width: 90%;
-    margin: 0 auto;
-    border-top: 2px solid var(--br);
 }
 
 .news-sent {
@@ -894,15 +840,8 @@ footer {
 }
 
 .news-article p {
-    display: block;
     margin: 60px auto 0;
     font-size: 30px;
-    gap: 8px;
-}
-
-.kuuhaku {
-    display: flex;
-    margin: 10px auto;
 }
 
 .news-sent p span {
@@ -912,36 +851,6 @@ footer {
     text-align: left;
     margin: 60px auto;
     font-size: 24px;
-}
-
-.line-news {
-    display: flex;
-    border-top: 1px solid var(--br);
-    width: 100%;
-    margin: 120px auto 24px;
-
-}
-
-.topicks-article-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 90px;
-    margin-top: 24px;
-}
-
-.topicks-article-button a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 48px;
-    color: var(--pink);
-    width: 80px;
-    height: 80px;
-    background-color: var(--cleam);
-    border: 2px solid var(--pink);
-    border-radius: 100px;
-    text-align: center;
 }
 
 /*フッター*/
@@ -1089,8 +998,4 @@ footer {
 .thx-button a:hover {
     color: var(--cleam);
     background-color: var(--pink);
-}
-
-.hide {
-    display: none;
 }

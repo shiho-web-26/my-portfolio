@@ -8,7 +8,7 @@ function displayProducts() {
         const img = `images/products-no-bg/${id}.png`
 
         const name = products[i].name;
-        const priceMin = products[i].sizePrices.slice;
+        const priceMin = Object.values(products[0].sizePrices)[0];
 
         itemList.innerHTML += `
             <article>
@@ -300,6 +300,27 @@ function displayProductDetail(id) {
     });
 }
 
+function displayPickUp() {
+    const pickUpBox = document.getElementById("pick-up-box");
+
+    for (let i = 2; i >= 0; i--) {
+        const product = products[i];
+        const img = `images/products/${product.id}.png`;
+        const name = product.name;
+        const priceMin = Object.values(products[0].sizePrices)[0];
+
+        pickUpBox.innerHTML += `
+            <article>
+                <a href="product.html?id=${product.id}">
+                    <img src="${img}" alt="${name}の写真">
+                    <p class="title">${name}</p>
+                    <p class="price"><strong>${priceMin.toLocaleString()}</strong><span>yen~</span></p>
+                </a>
+            </article>
+        `;
+    }
+}
+
 function displayCartPage() {
     localStorage.getItem("cart", JSON.stringify(cart));//[]
     console.log(cart);
@@ -407,7 +428,7 @@ function displayNews() {
 
         newsPageTopicks.innerHTML += `
             <article class="news-box">
-                    <a class="news-link" href="article.html?id=${id}">
+                    <a href="article.html?id=${id}">
                     <img src="${img}" alt="${title}">
                     <p>
                         ${title}<br>
@@ -429,14 +450,13 @@ function displayNewsDetail(id) {
     const newsArticle = document.getElementById("news-article");
 
     newsArticle.innerHTML = `
-        <h2 class="news_title">${title}</h2>
+        <h2>${title}</h2>
         <div class="line-02"></div>
-        <div class="news_sent">
+        <div class="news-sent">
             <span>${date}</span>
-            <p>${description}</p>
-              
-            <div class="line"></div>
+            <p>${description}</p>              
         </div>
+        <div class="line"></div>
         <button id="back-btn">↼Back</button>
     `;
 }

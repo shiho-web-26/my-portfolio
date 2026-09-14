@@ -9,24 +9,19 @@
 </head>
 
 <body>
+    <header>
+        <a class="header-title" href="index.html">SWEET.</a>
 
-    <header class="header">
-
-        <div class="header-box">
-            <a class="header-title" href="#">SWEET.</a>
-
-            <div class="header-list">
-                <nav>
-                    <ul>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="menu.html">MENU</a></li>
-                        <li><a href="cart.html">CART</a></li>
-                        <li><a href="news.html">NEWS</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="header-list">
+            <nav>
+                <ul>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="menu.html">MENU</a></li>
+                    <li><a href="cart.html">CART</a></li>
+                    <li><a href="news.html">NEWS</a></li>
+                </ul>
+            </nav>
         </div>
-
     </header>
 
     <main>
@@ -34,7 +29,7 @@
 
         <section class="online-shop">
             <strong>ネットでご予約・店舗で受け取り</strong>
-            <img src="images/home/online-shop.png" alt="ネットでご予約・店舗で受け取り">
+            <img src="images/index/online-shop.png" alt="ネットでご予約・店舗で受け取り">
             <p>
                 メッセージプレートやロウソクも事前にオーダー<br>
                 当日は、ケーキを受け取るだけ
@@ -42,39 +37,13 @@
         </section>
 
         <section class="pick-up">
-            <h2 class="pick-up-title">Pick Up</h2>
-
-            <div class="pick-up-box">
-                <article>
-                    <a href="#">
-                        <img src="images/products/chocolatecake.png" alt="チョコレートケーキの写真">
-                        <p class="title">ChocolateCake</p>
-                        <p class="price"><strong>3,400</strong><span>yen~</span></p>
-                    </a>
-                </article>
-
-                <article>
-                    <a href="#">
-                        <img src="images/products/shortcake.png" alt="ショートケーキの写真">
-                        <p class="title">ShortCake</p>
-                        <p class="price"><strong>3,600</strong><span>yen~</span></p>
-                    </a>
-                </article>
-
-                <article>
-                    <a href="#">
-                        <img src="images/products/macaron.png" alt="マカロンの写真">
-                        <p class="title">Macaron</p>
-                        <p class="price"><strong>440</strong><span>yen~</span></p>
-                    </a>
-                </article>
-            </div>
-
-            <a href="menu.html" class="menu-go"><strong>MENU</strong></a>
+            <h2>Pick Up</h2>
+            <div id="pick-up-box" class="pick-up-box"></div>
+            <a class="menu-go" href="menu.html"><strong>MENU</strong></a>
         </section>
 
-        <section class="cake-shop-box">
-            <div class="cake-shop">
+        <section class="cake-shop">
+            <div class="cake-shop-box">
                 <h2>Cake Shop</h2>
 
                 <div class="cake-shop-sent">
@@ -87,18 +56,17 @@
                         <strong>Tel:</strong>090-××××-××××<br>
                         <strong>Address:</strong>
                         〒194-0000 東京都町田市<br>
-                        ◯◯◯◯3丁目〇-◯
+                        ◯◯◯ ◯丁目◯-◯
                     </p>
                 </div>
 
-                <a href="#">
+                <a href="about.html">
                     ❥more
                 </a>
             </div>
 
-            <img src="images/home/shop-out.png" alt="お店の外観" class="cake-shop-img">
+            <img src="images/index/shop-out.png" alt="お店の外観" class="cake-shop-img">
         </section>
-
     </main>
 
     <footer>
@@ -114,8 +82,8 @@
             </div>
 
             <div class="sns">
-                <a href="#"><img src="images/home/instagram.png" alt="instagram"></a>
-                <a href="#"><img src="images/home/x.png" alt="x"></a>
+                <a href="#"><img src="images/index/instagram.png" alt="instagram"></a>
+                <a href="#"><img src="images/index/x.png" alt="x"></a>
             </div>
 
             <small>© 2026 SWEET. Online Shop</small>
@@ -135,11 +103,13 @@
 
     </footer>
 
+    <script src="js/product.js"></script>
     <script src="js/news.js"></script>
     <script src="js/script.js"></script>
 
     <script>
         displayNews();
+        displayPickUp();
     </script>
 </body>
 
