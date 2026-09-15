@@ -118,6 +118,15 @@
     <script>
         displayNews();
         displayPickUp();
+
+        const hero = document.querySelector(".hero");
+
+        window.addEventListener("scroll", () => {
+            const scrollY = window.scrollY;
+            const scale = Math.min(1 + scrollY / 2000, 1.2);
+
+            hero.style.setProperty("--hero-scale", scale);
+        });
     </script>
 </body>
 
