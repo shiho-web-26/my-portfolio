@@ -5,7 +5,7 @@ function displayProducts() {
 
     for (let i = 0; i < products.length; i++) {
         const id = products[i].id;
-        const img = `images/products-no-bg/${id}.png`
+        const img = `images/products-no-bg/${id}.webp`
 
         const name = products[i].name;
         const priceMin = Object.values(products[i].sizePrices)[0];
@@ -31,7 +31,7 @@ function displayProducts() {
 function displayProductDetail(id) {
     const productPage = document.getElementById("product-page");
 
-    const img = `images/products/${id}.png`;
+    const img = `images/products/${id}.webp`;
     const product = products.find((product) => product.id === id);
     const name = product.name;
     const description = product.description;
@@ -166,13 +166,13 @@ function displayProductDetail(id) {
         if (priceId !== "slice") {
             size = `${priceId}号`;
             imgElement.innerHTML = `
-            <img id="img" src="images/products/${id}.png" alt="${name}の写真">
+            <img id="img" src="images/products/${id}.webp" alt="${name}の写真">
             `
             wholeCake.classList.remove("hide");
         } else {
             size = "1カット";
             imgElement.innerHTML = `
-            <img id="img" src="images/products/${id}-slice.png" alt="${name}の写真">
+            <img id="img" src="images/products/${id}-slice.webp" alt="${name}の写真">
             `
             wholeCake.classList.add("hide");
         }
@@ -346,8 +346,8 @@ function displayPickUp() {
 
     for (let i = 2; i >= 0; i--) {
         const product = products[i];
-        const img = `images/products/${product.id}.png`;
-        const imgMobile = `images/products-no-bg/${product.id}.png`;
+        const img = `images/products/${product.id}.webp`;
+        const imgMobile = `images/products-no-bg/${product.id}.webp`;
         const name = product.name;
         const priceMin = Object.values(product.sizePrices)[0];
 
@@ -552,7 +552,7 @@ function displayNews() {
 
     for (let i = news.length - 1; i >= 0; i--) {
         const id = news[i].id;
-        const img = `images/news/${id}.png`;
+        const img = `images/news/${id}.webp`;
         const title = news[i].title;
         const date = news[i].date;
 
