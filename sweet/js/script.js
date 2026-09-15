@@ -240,6 +240,7 @@ function displayProductDetail(id) {
                         rows="1"
                         placeholder="例）Happy Birthday ◯◯"
                         id="message"
+                        maxlength="20"
                         required
                     ></textarea>
                 </label>
@@ -275,7 +276,8 @@ function displayProductDetail(id) {
                     <textarea 
                         rows="1" 
                         placeholder="例）長3本と短2本" 
-                        id="candle" 
+                        id="candle"
+                        maxlength="10" 
                         required
                     ></textarea>
                 </label>
@@ -345,14 +347,20 @@ function displayPickUp() {
     for (let i = 2; i >= 0; i--) {
         const product = products[i];
         const img = `images/products/${product.id}.png`;
+        const imgMobile = `images/products-no-bg/${product.id}.png`;
         const name = product.name;
         const priceMin = Object.values(product.sizePrices)[0];
 
         pickUpBox.innerHTML += `
             <article>
                 <a href="product.html?id=${product.id}">
-                    <img src="${img}" alt="${name}の写真">
-                    <p class="title">${name}</p>
+                    <picture>
+                        <source
+                            media="(max-width: 768px)"
+                            srcset="${imgMobile}"
+                        >
+                        <img src="${img}" alt="${name}の写真">
+                    </picture>                    <p class="title">${name}</p>
                     <p class="price"><strong>${priceMin.toLocaleString()}</strong><span>yen~</span></p>
                 </a>
             </article>
@@ -363,6 +371,31 @@ function displayPickUp() {
 function displayCartPage() {
     const cartPageEmp = document.getElementById("cart-page-emp");
     const cartPage = document.getElementById("cart-page");
+
+    for (let i = 0; i < cart.length; i++) {
+
+        for (let j = i + 1; j < cart.length; j++) {
+
+            const isSame =
+                cart[i].productId === cart[j].productId &&
+                cart[i].size === cart[j].size &&
+                cart[i].price === cart[j].price &&
+                cart[i].pickupDate === cart[j].pickupDate &&
+                cart[i].pickupTime === cart[j].pickupTime &&
+                cart[i].message === cart[j].message &&
+                cart[i].candles === cart[j].candles;
+
+            if (isSame) {
+                cart[i].quantity += cart[j].quantity;
+
+                cart.splice(j, 1);
+
+                j--;
+            }
+        }
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     if (cart.length === 0) {
         cartPage.classList.add("hide");
@@ -383,25 +416,81 @@ function displayCartPage() {
             const price = cart[i].price;
             const subtotal = price * qty;
 
-            cartArea.innerHTML += `
-            <div class="cart-area-product">
-              <strong>${name}</strong>
-              <p>${size}</p>
-              <p>
-                <button type="button" data-action="minus" data-index="${i}">-</button>
-                <span>${qty}</span>
-                <button type="button" data-action="plus" data-index="${i}">+</button>
-               </p>
-              <p>￥${price.toLocaleString()}</p>
-              <p>￥${subtotal.toLocaleString()}</p>
+            const date = cart[i].pickupDate;
+            const time = cart[i].pickupTime;
+            const message = cart[i].message;
+            const candles = cart[i].candles;
 
-              <p class="cart_del">
-                <button type="button" data-action="remove" data-index="${i}">
-                  削除
+            cartArea.innerHTML += `
+    <div class="cart-area-product">
+        <div class="order-detail">
+            <strong>${name}</strong>
+            <p>${size}</p>
+            <p>
+                <button
+                    type="button"
+                    data-action="minus"
+                    data-index="${i}"
+                >
+                    -
                 </button>
-              </p>
+
+                <span>${qty}</span>
+
+                <button
+                    type="button"
+                    data-action="plus"
+                    data-index="${i}"
+                >
+                    +
+                </button>
+            </p>
+            <p>￥${price.toLocaleString()}</p>
+            <p>￥${subtotal.toLocaleString()}</p>
+            <p class="cart-del">
+                <button
+                    type="button"
+                    data-action="remove"
+                    data-index="${i}"
+                >
+                    削除
+                </button>
+            </p>
+        </div>
+
+        <details class="cart-detail">
+            <summary>
+                <span class="detail-icon">▼</span>
+                注文内容
+            </summary>
+
+            <div class="cart-detail-content">
+                <p>
+                    <strong>受取日時</strong>
+                    <span>${date} ${time}</span>
+                </p>
+                <p>
+                    <strong>メッセージプレート</strong>
+                    <span>
+                        ${cart[i].message === "不要"
+                    ? "不要"
+                    : `メッセージ：${message}`
+                }
+                    </span>
+                </p>
+                <p>
+                    <strong>ローソク</strong>
+                    <span>
+                        ${cart[i].candles === "不要"
+                    ? "不要"
+                    : `本数：${candles}`
+                }
+                    </span>
+                </p>
             </div>
-            `
+        </details>
+    </div>
+`;
 
             totalPrice += subtotal;
         }
