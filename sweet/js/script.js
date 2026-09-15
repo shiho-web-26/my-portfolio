@@ -152,7 +152,7 @@ function displayProductDetail(id) {
     const sizeSelect = document.getElementById("sizeSelect");
     const priceElement = document.getElementById("price");
     const sizeElement = document.getElementById("size");
-    const imgElement = document.getElementById("product-imgage");
+    const imgElement = document.getElementById("product-image");
 
     sizeSelect.addEventListener("change", () => {
 
@@ -584,7 +584,7 @@ function displayNewsDetail(id) {
         <div class="line-02"></div>
         <div class="news-sent">
             <span>${date}</span>
-            <p>${description}</p>
+            ${description}
         </div>
         <div class="line"></div>
         <button class="back-btn" id="back-btn">↼Back</button>
