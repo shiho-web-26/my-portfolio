@@ -63,7 +63,7 @@ function displayProductDetail(id) {
 
     <section class="right">
         <h2>${name}<span id="size">${size}</span></h2>
-        ${description}
+        <p>${description}</p>
         <p class="product-price" id="price">￥${price.toLocaleString()}<span>（税込）</span></p>
 
 
@@ -152,7 +152,7 @@ function displayProductDetail(id) {
     const sizeSelect = document.getElementById("sizeSelect");
     const priceElement = document.getElementById("price");
     const sizeElement = document.getElementById("size");
-    const imgElement = document.getElementById("product-img");
+    const imgElement = document.getElementById("product-imgage");
 
     sizeSelect.addEventListener("change", () => {
 
@@ -273,7 +273,6 @@ function displayProductDetail(id) {
                     </span>
 
                     <textarea 
-                        type="message" 
                         rows="1" 
                         placeholder="例）長3本と短2本" 
                         id="candle" 
@@ -496,7 +495,7 @@ function displayNewsDetail(id) {
         <div class="line-02"></div>
         <div class="news-sent">
             <span>${date}</span>
-            <p>${description}</p>              
+            <p>${description}</p>
         </div>
         <div class="line"></div>
         <button class="back-btn" id="back-btn">↼Back</button>
