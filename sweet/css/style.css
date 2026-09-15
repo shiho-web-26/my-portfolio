@@ -132,13 +132,16 @@ header {
 
 /* Index */
 .hero {
-    min-height: 650px;
+    min-height: 750px;
     padding: 8%;
 
     display: flex;
     align-items: center;
 
-    background: url("../images/header.png") center / cover no-repeat;
+    background-image: url("../images/header-2.png");
+    background-size: cover;
+    background-position: right bottom;
+    background-repeat: no-repeat;
 }
 
 .hero-sent {
@@ -1142,8 +1145,8 @@ footer {
 
     .hero {
         width: 100%;
-        height: 100svh;
-        min-height: 100svh;
+        height: 80svh;
+        min-height: 80svh;
 
         position: sticky;
         top: 0;
