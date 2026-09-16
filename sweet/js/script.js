@@ -5,7 +5,7 @@ function displayProducts() {
 
     for (let i = 0; i < products.length; i++) {
         const id = products[i].id;
-        const img = `images/products-no-bg/${id}.png`
+        const img = `images/products-no-bg/${id}.webp`
 
         const name = products[i].name;
         const priceMin = Object.values(products[i].sizePrices)[0];
@@ -31,7 +31,7 @@ function displayProducts() {
 function displayProductDetail(id) {
     const productPage = document.getElementById("product-page");
 
-    const img = `images/products/${id}.png`;
+    const img = `images/products/${id}.webp`;
     const product = products.find((product) => product.id === id);
     const name = product.name;
     const description = product.description;
@@ -63,7 +63,7 @@ function displayProductDetail(id) {
 
     <section class="right">
         <h2>${name}<span id="size">${size}</span></h2>
-        ${description}
+        <p>${description}</p>
         <p class="product-price" id="price">￥${price.toLocaleString()}<span>（税込）</span></p>
 
 
@@ -152,7 +152,7 @@ function displayProductDetail(id) {
     const sizeSelect = document.getElementById("sizeSelect");
     const priceElement = document.getElementById("price");
     const sizeElement = document.getElementById("size");
-    const imgElement = document.getElementById("product-img");
+    const imgElement = document.getElementById("product-image");
 
     sizeSelect.addEventListener("change", () => {
 
@@ -166,13 +166,13 @@ function displayProductDetail(id) {
         if (priceId !== "slice") {
             size = `${priceId}号`;
             imgElement.innerHTML = `
-            <img id="img" src="images/products/${id}.png" alt="${name}の写真">
+            <img id="img" src="images/products/${id}.webp" alt="${name}の写真">
             `
             wholeCake.classList.remove("hide");
         } else {
             size = "1カット";
             imgElement.innerHTML = `
-            <img id="img" src="images/products/${id}-slice.png" alt="${name}の写真">
+            <img id="img" src="images/products/${id}-slice.webp" alt="${name}の写真">
             `
             wholeCake.classList.add("hide");
         }
@@ -240,6 +240,7 @@ function displayProductDetail(id) {
                         rows="1"
                         placeholder="例）Happy Birthday ◯◯"
                         id="message"
+                        maxlength="20"
                         required
                     ></textarea>
                 </label>
@@ -273,10 +274,10 @@ function displayProductDetail(id) {
                     </span>
 
                     <textarea 
-                        type="message" 
                         rows="1" 
                         placeholder="例）長3本と短2本" 
-                        id="candle" 
+                        id="candle"
+                        maxlength="10" 
                         required
                     ></textarea>
                 </label>
@@ -345,15 +346,21 @@ function displayPickUp() {
 
     for (let i = 2; i >= 0; i--) {
         const product = products[i];
-        const img = `images/products/${product.id}.png`;
+        const img = `images/products/${product.id}.webp`;
+        const imgMobile = `images/products-no-bg/${product.id}.webp`;
         const name = product.name;
         const priceMin = Object.values(product.sizePrices)[0];
 
         pickUpBox.innerHTML += `
             <article>
                 <a href="product.html?id=${product.id}">
-                    <img src="${img}" alt="${name}の写真">
-                    <p class="title">${name}</p>
+                    <picture>
+                        <source
+                            media="(max-width: 768px)"
+                            srcset="${imgMobile}"
+                        >
+                        <img src="${img}" alt="${name}の写真">
+                    </picture>                    <p class="title">${name}</p>
                     <p class="price"><strong>${priceMin.toLocaleString()}</strong><span>yen~</span></p>
                 </a>
             </article>
@@ -364,6 +371,31 @@ function displayPickUp() {
 function displayCartPage() {
     const cartPageEmp = document.getElementById("cart-page-emp");
     const cartPage = document.getElementById("cart-page");
+
+    for (let i = 0; i < cart.length; i++) {
+
+        for (let j = i + 1; j < cart.length; j++) {
+
+            const isSame =
+                cart[i].productId === cart[j].productId &&
+                cart[i].size === cart[j].size &&
+                cart[i].price === cart[j].price &&
+                cart[i].pickupDate === cart[j].pickupDate &&
+                cart[i].pickupTime === cart[j].pickupTime &&
+                cart[i].message === cart[j].message &&
+                cart[i].candles === cart[j].candles;
+
+            if (isSame) {
+                cart[i].quantity += cart[j].quantity;
+
+                cart.splice(j, 1);
+
+                j--;
+            }
+        }
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     if (cart.length === 0) {
         cartPage.classList.add("hide");
@@ -384,25 +416,81 @@ function displayCartPage() {
             const price = cart[i].price;
             const subtotal = price * qty;
 
-            cartArea.innerHTML += `
-            <div class="cart-area-product">
-              <strong>${name}</strong>
-              <p>${size}</p>
-              <p>
-                <button type="button" data-action="minus" data-index="${i}">-</button>
-                <span>${qty}</span>
-                <button type="button" data-action="plus" data-index="${i}">+</button>
-               </p>
-              <p>￥${price.toLocaleString()}</p>
-              <p>￥${subtotal.toLocaleString()}</p>
+            const date = cart[i].pickupDate;
+            const time = cart[i].pickupTime;
+            const message = cart[i].message;
+            const candles = cart[i].candles;
 
-              <p class="cart_del">
-                <button type="button" data-action="remove" data-index="${i}">
-                  削除
+            cartArea.innerHTML += `
+    <div class="cart-area-product">
+        <div class="order-detail">
+            <strong>${name}</strong>
+            <p>${size}</p>
+            <p>
+                <button
+                    type="button"
+                    data-action="minus"
+                    data-index="${i}"
+                >
+                    -
                 </button>
-              </p>
+
+                <span>${qty}</span>
+
+                <button
+                    type="button"
+                    data-action="plus"
+                    data-index="${i}"
+                >
+                    +
+                </button>
+            </p>
+            <p>￥${price.toLocaleString()}</p>
+            <p>￥${subtotal.toLocaleString()}</p>
+            <p class="cart-del">
+                <button
+                    type="button"
+                    data-action="remove"
+                    data-index="${i}"
+                >
+                    削除
+                </button>
+            </p>
+        </div>
+
+        <details class="cart-detail">
+            <summary>
+                <span class="detail-icon">▼</span>
+                注文内容
+            </summary>
+
+            <div class="cart-detail-content">
+                <p>
+                    <strong>受取日時</strong>
+                    <span>${date} ${time}</span>
+                </p>
+                <p>
+                    <strong>メッセージプレート</strong>
+                    <span>
+                        ${cart[i].message === "不要"
+                    ? "不要"
+                    : `メッセージ：${message}`
+                }
+                    </span>
+                </p>
+                <p>
+                    <strong>ローソク</strong>
+                    <span>
+                        ${cart[i].candles === "不要"
+                    ? "不要"
+                    : `本数：${candles}`
+                }
+                    </span>
+                </p>
             </div>
-            `
+        </details>
+    </div>
+`;
 
             totalPrice += subtotal;
         }
@@ -464,7 +552,7 @@ function displayNews() {
 
     for (let i = news.length - 1; i >= 0; i--) {
         const id = news[i].id;
-        const img = `images/news/${id}.png`;
+        const img = `images/news/${id}.webp`;
         const title = news[i].title;
         const date = news[i].date;
 
@@ -496,7 +584,7 @@ function displayNewsDetail(id) {
         <div class="line-02"></div>
         <div class="news-sent">
             <span>${date}</span>
-            <p>${description}</p>              
+            ${description}
         </div>
         <div class="line"></div>
         <button class="back-btn" id="back-btn">↼Back</button>

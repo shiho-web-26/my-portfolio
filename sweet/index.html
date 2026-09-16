@@ -33,55 +33,56 @@
             </div>
         </section>
 
-        <section class="index-news">
-            <div class="section-title">
-                <h2>News</h2>
-                <a href="news.html">View All →</a>
-            </div>
-
-            <div id="news-page-topicks" class="index-news-topicks"></div>
-        </section>
-
-        <section class="online-shop">
-            <h2>ネットでご予約・店舗で受け取り</h2>
-            <img src="images/index/online-shop.png" alt="ネットでご予約・店舗で受け取り">
-            <p>
-                メッセージプレートやロウソクも事前にオーダー<br>
-                当日は、ケーキを受け取るだけ
-            </p>
-        </section>
-
-        <section class="pick-up">
-            <h2>Pick Up</h2>
-            <div id="pick-up-box" class="pick-up-box"></div>
-            <a class="menu-go" href="menu.html"><strong>MENU</strong></a>
-        </section>
-
-        <section class="cake-shop">
-            <div class="cake-shop-box">
-                <h2>Cake Shop</h2>
-
-                <div class="cake-shop-sent">
-                    <p>
-                        <strong>Hours:</strong>11:00-19:00<br>
-                        <strong>Closed:</strong>Wednesday
-                    </p>
-
-                    <p>
-                        <strong>Tel:</strong>090-××××-××××<br>
-                        <strong>Address:</strong>
-                        〒194-0000 東京都町田市<br>
-                        ◯◯◯ ◯丁目◯-◯
-                    </p>
+        <div class="home-content">
+            <section class="index-news">
+                <div class="section-title">
+                    <h2>News</h2>
+                    <a href="news.html">View All →</a>
                 </div>
 
-                <a href="about.html">
-                    ❥more
-                </a>
-            </div>
+                <div id="news-page-topicks" class="index-news-topicks"></div>
+            </section>
 
-            <img src="images/index/shop-out.png" alt="お店の外観" class="cake-shop-img">
-        </section>
+            <section class="online-shop">
+                <h2>ネットでご予約・店舗で受け取り</h2>
+                <img src="images/index/online-shop.webp" alt="ネットでご予約・店舗で受け取り">
+                <p>
+                    メッセージプレートやロウソクも事前にオーダー<br>
+                    当日は、ケーキを受け取るだけ
+                </p>
+            </section>
+
+            <section class="pick-up">
+                <h2>Pick Up</h2>
+                <div id="pick-up-box" class="pick-up-box"></div>
+                <a class="menu-go" href="menu.html"><strong>MENU</strong></a>
+            </section>
+
+            <section class="cake-shop">
+                <div class="cake-shop-box">
+                    <h2>Cake Shop</h2>
+
+                    <div class="cake-shop-sent">
+                        <p>
+                            <strong>Hours:</strong>11:00-19:00<br>
+                            <strong>Closed:</strong>Wednesday
+                        </p>
+
+                        <p>
+                            <strong>Tel:</strong>03-1234-5678<br>
+                            <strong>Address:</strong>
+                            〒150-0000 東京都渋谷区スイーツ町1-2-3
+                        </p>
+                    </div>
+
+                    <a href="about.html">
+                        ❥more
+                    </a>
+                </div>
+
+                <img src="images/index/shop-out.webp" alt="お店の外観" class="cake-shop-img">
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -93,8 +94,8 @@
             </div>
 
             <div class="sns">
-                <a href="#"><img src="images/index/instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="images/index/x.png" alt="X"></a>
+                <img src="images/index/instagram.webp" alt="Instagram">
+                <img src="images/index/x.webp" alt="X">
             </div>
 
             <p>※本サイトはポートフォリオ用に制作した架空のECサイトです。</p>
@@ -117,6 +118,15 @@
     <script>
         displayNews();
         displayPickUp();
+
+        const hero = document.querySelector(".hero");
+
+        window.addEventListener("scroll", () => {
+            const scrollY = window.scrollY;
+            const scale = Math.min(1 + scrollY / 2000, 1.2);
+
+            hero.style.setProperty("--hero-scale", scale);
+        });
     </script>
 </body>
 
